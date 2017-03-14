@@ -1,2 +1,2 @@
-# stock-price
-Web Component to display stock price
+# stock-value
+Web Component to display stock value

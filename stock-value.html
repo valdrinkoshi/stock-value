@@ -1,0 +1,118 @@
+<link rel="import" href="../polymer/polymer-element.html">
+<dom-module id="stock-value">
+  <template>
+    <style>
+      .wrapper {
+        display: inline-block;
+      }
+      
+      .up {
+        color: var(--stock-value-up-color, green);
+      }
+      
+       :host(:not([suffix-symbol])) .up:before,
+       :host([suffix-symbol]) .up:after {
+        content: var(--stock-value-up-symbol, '⬆');
+      }
+      
+      .down {
+        color: var(--stock-value-down-color, red);
+      }
+      
+       :host(:not([suffix-symbol])) .down:before,
+       :host([suffix-symbol]) .down:after {
+        content: var(--stock-value-down-symbol, '⬇');
+      }
+      
+      .neutral {
+        color: var(--stock-value-neutral-color, #666);
+      }
+      
+       :host(:not([suffix-symbol])) .neutral:before,
+       :host([suffix-symbol]) .neutral:after {
+        content: var(--stock-value-neutral-symbol);
+      }
+    </style>
+    <div class="wrapper" class$="[[_computeClass(difference)]]">
+      <span>[[_computeFmtDifference(difference, only)]]</span>
+      <span>[[_computeFmtPercent(percent, only)]]</span>
+    </div>
+  </template>
+
+  <script>
+    class StockValue extends Polymer.Element {
+      static get is() {
+        return 'stock-value'
+      }
+      static get properties() {
+        return {
+          /** 
+           * The current value.
+           */
+          current: {
+            type: Number
+          },
+          /** 
+           * The previous value.
+           */
+          previous: {
+            type: Number
+          },
+          /** 
+           * The difference.
+           */
+          difference: {
+            type: Number,
+            computed: '_computeDifference(current, previous)'
+          },
+          /** 
+           * The difference percent.
+           */
+          percent: {
+            type: Number,
+            computed: '_computePercent(difference, previous)'
+          },
+          /** 
+           * Set to 'difference' or 'percent' to change what is displayed.
+           * Unset to display both (default). 
+           */
+          only: {
+            type: String
+          }
+        }
+      }
+      _computeDifference(current, previous) {
+        if (!Number.isFinite(current) || !Number.isFinite(previous)) return 0;
+        return current - previous;
+      }
+
+      _computeFmtDifference(value, only) {
+        if (only === 'percent') return;
+        return this._computeFmtValue(value);
+      }
+
+      _computePercent(difference, previous) {
+        if (!previous || !Number.isFinite(difference)) return 0;
+        return 100 * (difference / previous);
+      }
+
+      _computeFmtPercent(value, only) {
+        if (only === 'difference') return;
+        const fmtValue = this._computeFmtValue(value) + '%';
+        return only === 'percent' ? fmtValue : '(' + fmtValue + ')';
+      }
+
+      _computeFmtValue(value) {
+        return (value > 0 ? '+' : '') + value.toLocaleString(undefined, {
+          minimumFractionDigits: 2,
+          maximumFractionDigits: Math.abs(value * 100) < 1 ? 4 : 2
+        });
+      }
+
+      _computeClass(difference) {
+        return !difference ? 'neutral' : difference > 0 ? 'up' : 'down';
+      }
+    }
+    customElements.define(StockValue.is, StockValue);
+  </script>
+</dom-module>
