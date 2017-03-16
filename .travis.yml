@@ -1,9 +1,8 @@
 language: node_js
 sudo: required
 install:
-- yarn global add bower polymer-cli@next
 - yarn
-- polymer install
+- node_modules/.bin/polymer install
 node_js: '6'
 addons:
   firefox: latest
@@ -13,5 +12,5 @@ addons:
     packages:
     - google-chrome-stable
 script:
-- xvfb-run polymer test
+- xvfb-run node_modules/.bin/polymer test
 dist: trusty
