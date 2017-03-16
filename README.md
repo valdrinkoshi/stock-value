@@ -10,13 +10,15 @@ bower install --save valdrinkoshi/stock-value
 
 ## Usage
 Drop `<stock-value>` in, provide the `current` and `previous` values, and see if your stock is ⬆ or ⬇.
+
+Example:
 <!--
 ```
 <custom-element-demo>
   <template>
     <script src="../webcomponentsjs/webcomponents-loader.js"></script>
     <link rel="import" href="stock-value.html">
-    <custom-style><style is="custom-style">
+    <style>
       body {
         text-align: center;
         font-family: 'Roboto', 'Noto', sans-serif;
@@ -32,15 +34,7 @@ Drop `<stock-value>` in, provide the `current` and `previous` values, and see if
         border: 1px solid lightgray;
         line-height: 1rem;
       }
-      stock-value.styled-stock {
-        --stock-value-up-symbol: '🤑';
-        --stock-value-up-color: olivedrab;
-        --stock-value-down-symbol: '😨';
-        --stock-value-down-color: orangered;
-        --stock-value-neutral-symbol: '😶';
-        --stock-value-neutral-color: dimgrey;
-      }
-    </style></custom-style>
+    </style>
     <next-code-block></next-code-block>
   </template>
 </custom-element-demo>
@@ -51,6 +45,17 @@ Drop `<stock-value>` in, provide the `current` and `previous` values, and see if
 <span>Oil $48.68 <stock-value current="48.68" previous="48.68"></stock-value></span>
 <span>Euro $1.07 <stock-value current="1.081421" previous="1.085135"></stock-value></span>
 <span>Gold $1,213.90 <stock-value current="1213.90123" previous="1211.781"></stock-value></span>
+
+<custom-style><style is="custom-style">
+  stock-value.styled-stock {
+    --stock-value-up-symbol: '🤑';
+    --stock-value-up-color: olivedrab;
+    --stock-value-down-symbol: '😨';
+    --stock-value-down-color: orangered;
+    --stock-value-neutral-symbol: '😶';
+    --stock-value-neutral-color: dimgrey;
+  }
+</style></custom-style>
 <h3>My Porfolio</h3>
 <span>
   Total gain/loss:
@@ -65,6 +70,9 @@ Drop `<stock-value>` in, provide the `current` and `previous` values, and see if
   <stock-value class="styled-stock" current="120.12" previous="123.11" only="percent" suffix-symbol></stock-value>
 </span>
 ```
+Screenshot:
+
+![stock-value](images/screenshot.png)
 
 [APIs](https://www.webcomponents.org/element/valdrinkoshi/stock-value/stock-value)
 
