@@ -1,0 +1,28 @@
+{
+  "name": "stock-price",
+  "version": "0.0.2",
+  "description": "Web Component to display stock value",
+  "main": "stock-value.html",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "polymer test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/valdrinkoshi/stock-value.git"
+  },
+  "keywords": [
+    "web-components"
+  ],
+  "author": "valdrinkoshi@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/valdrinkoshi/stock-value/issues"
+  },
+  "homepage": "https://github.com/valdrinkoshi/stock-value#readme",
+  "devDependencies": {
+    "web-component-tester": "polymer/web-component-tester#^6.0.0-prerelease.7"
+  }
+}

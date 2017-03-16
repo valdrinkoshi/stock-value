@@ -2,7 +2,7 @@
   "name": "stock-value",
   "homepage": "https://github.com/valdrinkoshi/stock-value",
   "authors": [
-    "valdrinkoshi <valdrin@google.com>"
+    "valdrinkoshi <valdrinkoshi@gmail.com>"
   ],
   "version": "0.0.2",
   "description": "Web Component to display stock value",
