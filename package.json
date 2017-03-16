@@ -23,6 +23,6 @@
   },
   "homepage": "https://github.com/valdrinkoshi/stock-value#readme",
   "devDependencies": {
-    "web-component-tester": "polymer/web-component-tester#^6.0.0-prerelease.7"
+    "web-component-tester": "^6.0.0-prerelease.7"
   }
 }
