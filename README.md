@@ -1,4 +1,4 @@
-<!--[![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/element/valdrinkoshi/stock-value)-->
+[![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/element/valdrinkoshi/stock-value)
 
 # stock-value
 Web Component to display stock value.
@@ -14,11 +14,11 @@ Drop `stock-value` in, provide the `current` and `previous` values, and see if y
 ## Demo
 <!--
 ```
-<custom-element-demo height="300">
+<custom-element-demo>
   <template>
     <script src="../webcomponentsjs/webcomponents-lite.js"></script>
     <link rel="import" href="stock-value.html">
-    <custom-style><style>
+    <custom-style><style is="custom-style">
      stock-value.portfolio {
         --stock-value-up-symbol: '🤑';
         --stock-value-up-color: olivedrab;
