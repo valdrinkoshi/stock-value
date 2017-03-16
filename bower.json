@@ -5,8 +5,8 @@
     "valdrinkoshi <valdrin@google.com>"
   ],
   "version": "0.0.1",
-  "description": "",
-  "main": "",
+  "description": "Web Component to display stock value",
+  "main": "stock-value.html",
   "license": "MIT",
   "private": true,
   "ignore": [
