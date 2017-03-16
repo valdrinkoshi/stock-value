@@ -1,4 +1,5 @@
 [![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/element/valdrinkoshi/stock-value)
+[![Build Status](https://travis-ci.org/valdrinkoshi/stock-value.svg?branch=master)](https://travis-ci.org/valdrinkoshi/stock-value)
 
 # stock-value
 Web Component to display stock value.
