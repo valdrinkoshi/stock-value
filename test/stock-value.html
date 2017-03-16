@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>stock-value tests</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+  <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+  <script src="../../web-component-tester/browser.js"></script>
+  <link rel="import" href="../stock-value.html">
+</head>
+
+<body>
+
+  <test-fixture id="basic">
+    <template>
+      <stock-value current="1" previous="2"></stock-value>
+    </template>
+  </test-fixture>
+
+  <script>
+    suite('<stock-value>', function() {
+      var stock;
+      setup(function() {
+        stock = fixture('basic');
+      });
+
+      test('correctly instantiated', function() {
+        assert.equal(stock.current, 1, 'current not set correctly');
+        assert.equal(stock.previous, 2, 'previous not set correctly');
+        assert.equal(stock.difference, -1, 'difference not calculated correctly');
+        assert.equal(stock.percent, -50, 'percent not calculated correctly');
+        assert.isTrue(/-1\.00\s+\(-50\.00%\)/g.test(stock.$.wrapper.textContent.trim()),
+          'formatted value is not -1.00 (-50.00%)');
+      });
+
+    });
+  </script>
+
+</body>
+
+</html>

@@ -17,14 +17,16 @@
     "tests"
   ],
   "dependencies": {
-    "polymer": "polymer/polymer#^2.0.0-rc.2"
+    "polymer": "polymer/polymer#^2.0.0-rc.3"
   },
   "devDependencies": {
-    "iron-demo-helpers": "PolymerElements/iron-demo-helpers#2.0-preview",
+    "iron-demo-helpers": "polymerelements/iron-demo-helpers#2.0-preview",
     "paper-input": "polymerelements/paper-input#2.0-preview",
     "paper-dropdown-menu": "polymerelements/paper-dropdown-menu#2.0-preview",
     "paper-listbox": "polymerelements/paper-listbox#2.0-preview",
     "paper-item": "polymerelements/paper-item#2.0-preview",
-    "paper-checkbox": "polymerelements/paper-checkbox#2.0-preview"
+    "paper-checkbox": "polymerelements/paper-checkbox#2.0-preview",
+    "web-component-tester": "polymer/web-component-tester#^6.0.0-prerelease.7",
+    "webcomponentsjs": "webcomponents/webcomponentsjs#^1.0.0-rc.5"
   }
 }

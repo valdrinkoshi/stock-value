@@ -2,7 +2,7 @@
 <dom-module id="stock-value">
   <template>
     <style>
-      .wrapper {
+      #wrapper {
         display: inline-block;
       }
       
@@ -33,7 +33,7 @@
         content: var(--stock-value-neutral-symbol);
       }
     </style>
-    <div class="wrapper" class$="[[_computeClass(difference)]]">
+    <div id="wrapper" class$="[[_computeClass(difference)]]">
       <span>[[_computeFmtDifference(difference, only)]]</span>
       <span>[[_computeFmtPercent(percent, only)]]</span>
     </div>
