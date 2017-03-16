@@ -4,7 +4,7 @@
   "authors": [
     "valdrinkoshi <valdrin@google.com>"
   ],
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Web Component to display stock value",
   "main": "stock-value.html",
   "license": "MIT",
