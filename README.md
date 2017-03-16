@@ -14,7 +14,7 @@ Drop `<stock-value>` in, provide the `current` and `previous` values, and see if
 ```
 <custom-element-demo>
   <template>
-    <script src="../webcomponentsjs/webcomponents-loader.js"></script>
+    <script src="../webcomponentsjs/webcomponents-lite.js"></script>
     <link rel="import" href="stock-value.html">
     <custom-style><style is="custom-style">
       body {
