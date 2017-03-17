@@ -35,28 +35,28 @@
         assert.equal(stock.previous, 2, 'previous not set correctly');
         assert.equal(stock.difference, -1, 'difference not calculated correctly');
         assert.equal(stock.percent, -50, 'percent not calculated correctly');
-        assert.equal(stock.textContent, '-1.00 (-50.00%)', 'not formatted correctly');
+        assert.equal(stock.wrapperElement.textContent, '-1.00 (-50.00%)', 'not formatted correctly');
       });
 
       test('correctly updated', function() {
         stock.current = 2;
         assert.equal(stock.difference, 0, 'difference not calculated correctly');
         assert.equal(stock.percent, 0, 'percent not calculated correctly');
-        assert.equal(stock.textContent, '0.00 (0.00%)', 'not formatted correctly');
+        assert.equal(stock.wrapperElement.textContent, '0.00 (0.00%)', 'not formatted correctly');
         stock.previous = 1;
         assert.equal(stock.difference, 1, 'difference not calculated correctly');
         assert.equal(stock.percent, 100, 'percent not calculated correctly');
-        assert.equal(stock.textContent, '+1.00 (+100.00%)', 'not formatted correctly');
+        assert.equal(stock.wrapperElement.textContent, '+1.00 (+100.00%)', 'not formatted correctly');
       });
 
       test('only difference, only percent', function() {
         stock.only = 'difference';
-        assert.equal(stock.textContent, '-1.00', 'only difference not formatted correctly');
+        assert.equal(stock.wrapperElement.textContent, '-1.00', 'only difference not formatted correctly');
         stock.only = 'percent';
-        assert.equal(stock.textContent, '-50.00%', 'only percent not formatted correctly');
+        assert.equal(stock.wrapperElement.textContent, '-50.00%', 'only percent not formatted correctly');
         stock.only = 'wrong value';
         assert.equal(stock.only, null, 'only value not corrected');
-        assert.equal(stock.textContent, '-1.00 (-50.00%)', 'not formatted correctly');
+        assert.equal(stock.wrapperElement.textContent, '-1.00 (-50.00%)', 'not formatted correctly');
       });
 
     });
