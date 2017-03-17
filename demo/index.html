@@ -20,6 +20,7 @@
 </head>
 
 <body class="centered">
+  <stock-value></stock-value>
   <custom-style>
     <style include="demo-pages-shared-styles">
       demo-snippet {
@@ -93,8 +94,8 @@
             <paper-checkbox checked="{{suffixSymbol}}">suffix symbol</paper-checkbox>
           </p>
           <div class="stock-wrapper">
-            <stock-value stylish$="[[stylish]]" suffix-symbol$="[[suffixSymbol]]" current="[[toNumber(current)]]" previous="[[toNumber(previous)]]"
-              only="[[displayMode]]"></stock-value>
+            <stock-value stylish$="[[stylish]]" suffix-symbol$="[[suffixSymbol]]" current$="[[toNumber(current)]]" previous$="[[toNumber(previous)]]"
+              only$="[[displayMode]]"></stock-value>
           </div>
 
         </template>
@@ -140,8 +141,8 @@
                   <div class="td">[[item.currentFmt]]</div>
                   <div class="td">[[item.previousFmt]]</div>
                   <div class="td">
-                    <stock-value stylish$="[[stylish]]" suffix-symbol$="[[suffixSymbol]]" current="[[item.current]]" previous="[[item.previous]]"
-                      only="[[displayMode]]"></stock-value>
+                    <stock-value stylish$="[[stylish]]" suffix-symbol$="[[suffixSymbol]]" current$="[[item.current]]" previous$="[[item.previous]]"
+                      only$="[[displayMode]]"></stock-value>
                   </div>
                 </div>
               </template>

@@ -1,118 +1,236 @@
-<link rel="import" href="../polymer/polymer-element.html">
-<dom-module id="stock-value">
-  <template>
-    <style>
-      #wrapper {
-        display: inline-block;
-      }
-      
-      .up {
-        color: var(--stock-value-up-color, green);
-      }
-      
-       :host(:not([suffix-symbol])) .up:before,
-       :host([suffix-symbol]) .up:after {
-        content: var(--stock-value-up-symbol, '⬆');
-      }
-      
-      .down {
-        color: var(--stock-value-down-color, red);
-      }
-      
-       :host(:not([suffix-symbol])) .down:before,
-       :host([suffix-symbol]) .down:after {
-        content: var(--stock-value-down-symbol, '⬇');
-      }
-      
-      .neutral {
-        color: var(--stock-value-neutral-color, #666);
-      }
-      
-       :host(:not([suffix-symbol])) .neutral:before,
-       :host([suffix-symbol]) .neutral:after {
-        content: var(--stock-value-neutral-symbol);
-      }
-    </style>
-    <div id="wrapper" class$="[[_computeClass(difference)]]">
-      <span>[[_computeFmtDifference(difference, only)]]</span>
-      <span>[[_computeFmtPercent(percent, only)]]</span>
-    </div>
-  </template>
+<template id="stock-value">
+  <style>
+     :host(:not([suffix-symbol])) #wrapper:before {
+      margin-right: 4px;
+    }
+    
+     :host([suffix-symbol]) #wrapper:after {
+      margin-left: 4px;
+    }
+    
+    .up {
+      color: var(--stock-value-up-color, green);
+    }
+    
+     :host(:not([suffix-symbol])) .up:before,
+     :host([suffix-symbol]) .up:after {
+      content: var(--stock-value-up-symbol, '⬆');
+    }
+    
+    .down {
+      color: var(--stock-value-down-color, red);
+    }
+    
+     :host(:not([suffix-symbol])) .down:before,
+     :host([suffix-symbol]) .down:after {
+      content: var(--stock-value-down-symbol, '⬇');
+    }
+    
+    .neutral {
+      color: var(--stock-value-neutral-color, #666);
+    }
+    
+     :host(:not([suffix-symbol])) .neutral:before,
+     :host([suffix-symbol]) .neutral:after {
+      content: var(--stock-value-neutral-symbol);
+    }
+  </style>
+  <span id="wrapper"></span>
+</template>
 
-  <script>
-    class StockValue extends Polymer.Element {
+<script>
+  (doc => {
+    const templ = doc.querySelector('template#stock-value');
+    class StockValue extends HTMLElement {
       static get is() {
         return 'stock-value'
       }
-      static get properties() {
-        return {
-          /** 
-           * The current value.
-           */
-          current: {
-            type: Number
-          },
-          /** 
-           * The previous value.
-           */
-          previous: {
-            type: Number
-          },
-          /** 
-           * The difference.
-           */
-          difference: {
-            type: Number,
-            computed: '_computeDifference(current, previous)'
-          },
-          /** 
-           * The difference percent.
-           */
-          percent: {
-            type: Number,
-            computed: '_computePercent(difference, previous)'
-          },
-          /** 
-           * Set to 'difference' or 'percent' to change what is displayed.
-           * Unset to display both (default). 
-           */
-          only: {
-            type: String
-          }
-        }
-      }
-      _computeDifference(current, previous) {
-        if (!Number.isFinite(current) || !Number.isFinite(previous)) return 0;
-        return current - previous;
+      static get observedAttributes() {
+        return ['current', 'previous', 'only'];
       }
 
+      attributeChangedCallback(name, old, value) {
+        // Skip updating properties when old = "1" and value = 1
+        // (!= instead of !==)
+        if (old != value) {
+          // Convert to number only if attribute is current or previous.
+          value = name === 'only' ? value : Number(value);
+          // Wait all attributes to be done changing.
+          this._attributesChangingDebouncer && clearTimeout(this._attributesChangingDebouncer);
+          this._attributesChangingDebouncer = setTimeout(() => {
+            this._attributesChangingDebouncer = null;
+            this._updateDifferencePercent();
+          });
+          this[name] = value;
+        }
+      }
+
+      constructor() {
+        super();
+
+        this._attributesChangingDebouncer = null;
+
+        this._props = {
+          current: null,
+          previous: null,
+          only: null,
+          difference: 0,
+          percent: 0
+        };
+        this.attachShadow({
+          mode: 'open'
+        }).appendChild(document.importNode(templ.content, true));
+        this._wrapperEl = this.shadowRoot.querySelector('#wrapper');
+      }
+
+      /** 
+       * The current value.
+       * @type {Number|null}
+       */
+      get current() {
+        return this._props.current;
+      }
+
+      /** 
+       * @param {Number|null}
+       * @returns {Number|null}
+       */
+      set current(c) {
+        // Accept null or Number.
+        if (c !== null && !Number.isFinite(c)) c = null;
+        if (c === this._props.current) return;
+        this._props.current = c;
+        this._updateDifferencePercent();
+        return c;
+      }
+
+      /** 
+       * The previous value.
+       * @type {Number|null}
+       */
+      get previous() {
+        return this._props.previous;
+      }
+
+      /** 
+       * @param {Number|null}
+       * @returns {Number|null}
+       */
+      set previous(c) {
+        // Accept null or Number.
+        if (c !== null && !Number.isFinite(c)) c = null;
+        if (c === this._props.previous) return;
+        this._props.previous = c;
+        this._updateDifferencePercent();
+        return c;
+      }
+
+      /** 
+       * Set to 'difference' or 'percent' to change what is displayed.
+       * Unset to display both (default). 
+       * @type {String|null}
+       */
+      get only() {
+        return this._props.only;
+      }
+
+      /** 
+       * @param {String|null}
+       * @returns {String|null}
+       */
+      set only(c) {
+        // Accept only 'percent' or 'difference'.
+        if (c !== 'percent' && c !== 'difference') c = null;
+        if (c === this._props.only) return c;
+        this._props.only = c;
+        this._updateTextcontent();
+        return c;
+      }
+      /** 
+       * The difference.
+       * @type {!Number}
+       */
+      get difference() {
+        return this._props.difference;
+      }
+
+      /** 
+       * The difference percent.
+       * @type {!Number}
+       */
+      get percent() {
+        return this._props.percent;
+      }
+
+      /** 
+       * @private
+       */
+      _updateDifferencePercent() {
+        const cur = this.current,
+          prev = this.previous,
+          diff = (cur === null || prev === null) ? 0 : cur - prev,
+          perc = (!diff || !prev) ? 0 : 100 * (diff / prev);
+
+        this._props.difference = diff;
+        this._props.percent = perc;
+
+        if (this._attributesChangingDebouncer) return;
+
+        this._wrapperEl.classList.toggle('neutral', diff === 0);
+        this._wrapperEl.classList.toggle('up', diff > 0);
+        this._wrapperEl.classList.toggle('down', diff < 0);
+        this._updateTextcontent();
+      }
+
+      /** 
+       * @private
+       */
+      _updateTextcontent() {
+        if (this._attributesChangingDebouncer) return;
+        let tc;
+        switch (this.only) {
+          case 'difference':
+            tc = this._computeFmtValue(this.difference);
+            break;
+          case 'percent':
+            tc = this._computeFmtValue(this.percent) + '%';
+            break;
+          default:
+            tc = this._computeFmtValue(this.difference) + ' (' + this._computeFmtValue(this.percent) + '%)';
+            break;
+        }
+        this.textContent = this._wrapperEl.textContent = tc;
+      }
+
+      /** 
+       * @private
+       */
       _computeFmtDifference(value, only) {
-        if (only === 'percent') return;
+        if (only === 'percent') return '';
         return this._computeFmtValue(value);
       }
 
-      _computePercent(difference, previous) {
-        if (!previous || !Number.isFinite(difference)) return 0;
-        return 100 * (difference / previous);
-      }
-
+      /** 
+       * @private
+       */
       _computeFmtPercent(value, only) {
-        if (only === 'difference') return;
+        if (only === 'difference') return '';
         const fmtValue = this._computeFmtValue(value) + '%';
         return only === 'percent' ? fmtValue : '(' + fmtValue + ')';
       }
 
+      /** 
+       * @private
+       */
       _computeFmtValue(value) {
         return (value > 0 ? '+' : '') + value.toLocaleString(undefined, {
           minimumFractionDigits: 2,
           maximumFractionDigits: Math.abs(value * 100) < 1 ? 4 : 2
         });
       }
-
-      _computeClass(difference) {
-        return !difference ? 'neutral' : difference > 0 ? 'up' : 'down';
-      }
     }
+
     customElements.define(StockValue.is, StockValue);
-  </script>
-</dom-module>
+
+  })(document.currentScript.ownerDocument);
+</script>
