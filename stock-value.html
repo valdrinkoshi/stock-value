@@ -42,7 +42,7 @@
 <script>
   (doc => {
     const templ = doc.querySelector('template#stock-value');
-    templ && window.ShadyCSS && ShadyCSS.prepareTemplate(templ, 'stock-value');
+    window.ShadyCSS && ShadyCSS.prepareTemplate(templ, 'stock-value');
     class StockValue extends StockValueMixin(HTMLElement) {
       static get is() {
         return 'stock-value';
