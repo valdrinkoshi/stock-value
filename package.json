@@ -7,7 +7,8 @@
     "test": "test"
   },
   "scripts": {
-    "test": "polymer test"
+    "install": "node_modules/.bin/polymer install",
+    "test": "node_modules/.bin/polymer test"
   },
   "repository": {
     "type": "git",
