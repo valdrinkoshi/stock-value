@@ -24,6 +24,8 @@
     "paper-item": "polymerelements/paper-item#2.0-preview",
     "paper-checkbox": "polymerelements/paper-checkbox#2.0-preview",
     "web-component-tester": "polymer/web-component-tester#^6.0.0-prerelease.7",
-    "webcomponentsjs": "webcomponents/webcomponentsjs#^1.0.0-rc.5"
+    "webcomponentsjs": "webcomponents/webcomponentsjs#^1.0.0-rc.5",
+    "iron-ajax": "polymerelements/iron-ajax#2.0-preview",
+    "iron-list": "polymerelements/iron-list#2.0-preview"
   }
 }

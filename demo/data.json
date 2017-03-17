@@ -1,0 +1,1501 @@
+[{
+    "date": "16-Mar-17",
+    "open": 849.03,
+    "close": 848.78,
+    "format": "$d"
+  },
+  {
+    "date": "15-Mar-17",
+    "open": 847.59,
+    "close": 847.2,
+    "format": "$d"
+  },
+  {
+    "date": "14-Mar-17",
+    "open": 843.64,
+    "close": 845.62,
+    "format": "$d"
+  },
+  {
+    "date": "13-Mar-17",
+    "open": 844,
+    "close": 845.54,
+    "format": "$d"
+  },
+  {
+    "date": "10-Mar-17",
+    "open": 843.28,
+    "close": 843.25,
+    "format": "$d"
+  },
+  {
+    "date": "9-Mar-17",
+    "open": 836,
+    "close": 838.68,
+    "format": "$d"
+  },
+  {
+    "date": "8-Mar-17",
+    "open": 833.51,
+    "close": 835.37,
+    "format": "$d"
+  },
+  {
+    "date": "7-Mar-17",
+    "open": 827.4,
+    "close": 831.91,
+    "format": "$d"
+  },
+  {
+    "date": "6-Mar-17",
+    "open": 826.95,
+    "close": 827.78,
+    "format": "$d"
+  },
+  {
+    "date": "3-Mar-17",
+    "open": 830.56,
+    "close": 829.08,
+    "format": "$d"
+  },
+  {
+    "date": "2-Mar-17",
+    "open": 833.85,
+    "close": 830.63,
+    "format": "$d"
+  },
+  {
+    "date": "1-Mar-17",
+    "open": 828.85,
+    "close": 835.24,
+    "format": "$d"
+  },
+  {
+    "date": "28-Feb-17",
+    "open": 825.61,
+    "close": 823.21,
+    "format": "$d"
+  },
+  {
+    "date": "27-Feb-17",
+    "open": 824.55,
+    "close": 829.28,
+    "format": "$d"
+  },
+  {
+    "date": "24-Feb-17",
+    "open": 827.73,
+    "close": 828.64,
+    "format": "$d"
+  },
+  {
+    "date": "23-Feb-17",
+    "open": 830.12,
+    "close": 831.33,
+    "format": "$d"
+  },
+  {
+    "date": "22-Feb-17",
+    "open": 828.66,
+    "close": 830.76,
+    "format": "$d"
+  },
+  {
+    "date": "21-Feb-17",
+    "open": 828.66,
+    "close": 831.66,
+    "format": "$d"
+  },
+  {
+    "date": "17-Feb-17",
+    "open": 823.02,
+    "close": 828.07,
+    "format": "$d"
+  },
+  {
+    "date": "16-Feb-17",
+    "open": 819.93,
+    "close": 824.16,
+    "format": "$d"
+  },
+  {
+    "date": "15-Feb-17",
+    "open": 819.36,
+    "close": 818.98,
+    "format": "$d"
+  },
+  {
+    "date": "14-Feb-17",
+    "open": 819,
+    "close": 820.45,
+    "format": "$d"
+  },
+  {
+    "date": "13-Feb-17",
+    "open": 816,
+    "close": 819.24,
+    "format": "$d"
+  },
+  {
+    "date": "10-Feb-17",
+    "open": 811.7,
+    "close": 813.67,
+    "format": "$d"
+  },
+  {
+    "date": "9-Feb-17",
+    "open": 809.51,
+    "close": 809.56,
+    "format": "$d"
+  },
+  {
+    "date": "8-Feb-17",
+    "open": 807,
+    "close": 808.38,
+    "format": "$d"
+  },
+  {
+    "date": "7-Feb-17",
+    "open": 803.99,
+    "close": 806.97,
+    "format": "$d"
+  },
+  {
+    "date": "6-Feb-17",
+    "open": 799.7,
+    "close": 801.34,
+    "format": "$d"
+  },
+  {
+    "date": "3-Feb-17",
+    "open": 802.99,
+    "close": 801.49,
+    "format": "$d"
+  },
+  {
+    "date": "2-Feb-17",
+    "open": 793.8,
+    "close": 798.53,
+    "format": "$d"
+  },
+  {
+    "date": "1-Feb-17",
+    "open": 799.68,
+    "close": 795.7,
+    "format": "$d"
+  },
+  {
+    "date": "31-Jan-17",
+    "open": 796.86,
+    "close": 796.79,
+    "format": "$d"
+  },
+  {
+    "date": "30-Jan-17",
+    "open": 814.66,
+    "close": 802.32,
+    "format": "$d"
+  },
+  {
+    "date": "27-Jan-17",
+    "open": 834.71,
+    "close": 823.31,
+    "format": "$d"
+  },
+  {
+    "date": "26-Jan-17",
+    "open": 837.81,
+    "close": 832.15,
+    "format": "$d"
+  },
+  {
+    "date": "25-Jan-17",
+    "open": 829.62,
+    "close": 835.67,
+    "format": "$d"
+  },
+  {
+    "date": "24-Jan-17",
+    "open": 822.3,
+    "close": 823.87,
+    "format": "$d"
+  },
+  {
+    "date": "23-Jan-17",
+    "open": 807.25,
+    "close": 819.31,
+    "format": "$d"
+  },
+  {
+    "date": "20-Jan-17",
+    "open": 806.91,
+    "close": 805.02,
+    "format": "$d"
+  },
+  {
+    "date": "19-Jan-17",
+    "open": 805.12,
+    "close": 802.18,
+    "format": "$d"
+  },
+  {
+    "date": "18-Jan-17",
+    "open": 805.81,
+    "close": 806.07,
+    "format": "$d"
+  },
+  {
+    "date": "17-Jan-17",
+    "open": 807.08,
+    "close": 804.61,
+    "format": "$d"
+  },
+  {
+    "date": "13-Jan-17",
+    "open": 807.48,
+    "close": 807.88,
+    "format": "$d"
+  },
+  {
+    "date": "12-Jan-17",
+    "open": 807.14,
+    "close": 806.36,
+    "format": "$d"
+  },
+  {
+    "date": "11-Jan-17",
+    "open": 805,
+    "close": 807.91,
+    "format": "$d"
+  },
+  {
+    "date": "10-Jan-17",
+    "open": 807.86,
+    "close": 804.79,
+    "format": "$d"
+  },
+  {
+    "date": "9-Jan-17",
+    "open": 806.4,
+    "close": 806.65,
+    "format": "$d"
+  },
+  {
+    "date": "6-Jan-17",
+    "open": 795.26,
+    "close": 806.15,
+    "format": "$d"
+  },
+  {
+    "date": "5-Jan-17",
+    "open": 786.08,
+    "close": 794.02,
+    "format": "$d"
+  },
+  {
+    "date": "4-Jan-17",
+    "open": 788.36,
+    "close": 786.9,
+    "format": "$d"
+  },
+  {
+    "date": "3-Jan-17",
+    "open": 778.81,
+    "close": 786.14,
+    "format": "$d"
+  },
+  {
+    "date": "30-Dec-16",
+    "open": 782.75,
+    "close": 771.82,
+    "format": "$d"
+  },
+  {
+    "date": "29-Dec-16",
+    "open": 783.33,
+    "close": 782.79,
+    "format": "$d"
+  },
+  {
+    "date": "28-Dec-16",
+    "open": 793.7,
+    "close": 785.05,
+    "format": "$d"
+  },
+  {
+    "date": "27-Dec-16",
+    "open": 790.68,
+    "close": 791.55,
+    "format": "$d"
+  },
+  {
+    "date": "23-Dec-16",
+    "open": 790.9,
+    "close": 789.91,
+    "format": "$d"
+  },
+  {
+    "date": "22-Dec-16",
+    "open": 792.36,
+    "close": 791.26,
+    "format": "$d"
+  },
+  {
+    "date": "21-Dec-16",
+    "open": 795.84,
+    "close": 794.56,
+    "format": "$d"
+  },
+  {
+    "date": "20-Dec-16",
+    "open": 796.76,
+    "close": 796.42,
+    "format": "$d"
+  },
+  {
+    "date": "19-Dec-16",
+    "open": 790.22,
+    "close": 794.2,
+    "format": "$d"
+  },
+  {
+    "date": "16-Dec-16",
+    "open": 800.4,
+    "close": 790.8,
+    "format": "$d"
+  },
+  {
+    "date": "15-Dec-16",
+    "open": 797.34,
+    "close": 797.85,
+    "format": "$d"
+  },
+  {
+    "date": "14-Dec-16",
+    "open": 797.4,
+    "close": 797.07,
+    "format": "$d"
+  },
+  {
+    "date": "13-Dec-16",
+    "open": 793.9,
+    "close": 796.1,
+    "format": "$d"
+  },
+  {
+    "date": "12-Dec-16",
+    "open": 785.04,
+    "close": 789.27,
+    "format": "$d"
+  },
+  {
+    "date": "9-Dec-16",
+    "open": 780,
+    "close": 789.29,
+    "format": "$d"
+  },
+  {
+    "date": "8-Dec-16",
+    "open": 772.48,
+    "close": 776.42,
+    "format": "$d"
+  },
+  {
+    "date": "7-Dec-16",
+    "open": 761,
+    "close": 771.19,
+    "format": "$d"
+  },
+  {
+    "date": "6-Dec-16",
+    "open": 764.73,
+    "close": 759.11,
+    "format": "$d"
+  },
+  {
+    "date": "5-Dec-16",
+    "open": 757.71,
+    "close": 762.52,
+    "format": "$d"
+  },
+  {
+    "date": "2-Dec-16",
+    "open": 744.59,
+    "close": 750.5,
+    "format": "$d"
+  },
+  {
+    "date": "1-Dec-16",
+    "open": 757.44,
+    "close": 747.92,
+    "format": "$d"
+  },
+  {
+    "date": "30-Nov-16",
+    "open": 770.07,
+    "close": 758.04,
+    "format": "$d"
+  },
+  {
+    "date": "29-Nov-16",
+    "open": 771.53,
+    "close": 770.84,
+    "format": "$d"
+  },
+  {
+    "date": "28-Nov-16",
+    "open": 760,
+    "close": 768.24,
+    "format": "$d"
+  },
+  {
+    "date": "25-Nov-16",
+    "open": 764.26,
+    "close": 761.68,
+    "format": "$d"
+  },
+  {
+    "date": "23-Nov-16",
+    "open": 767.73,
+    "close": 760.99,
+    "format": "$d"
+  },
+  {
+    "date": "22-Nov-16",
+    "open": 772.63,
+    "close": 768.27,
+    "format": "$d"
+  },
+  {
+    "date": "21-Nov-16",
+    "open": 762.61,
+    "close": 769.2,
+    "format": "$d"
+  },
+  {
+    "date": "18-Nov-16",
+    "open": 771.37,
+    "close": 760.54,
+    "format": "$d"
+  },
+  {
+    "date": "17-Nov-16",
+    "open": 766.92,
+    "close": 771.23,
+    "format": "$d"
+  },
+  {
+    "date": "16-Nov-16",
+    "open": 755.2,
+    "close": 764.48,
+    "format": "$d"
+  },
+  {
+    "date": "15-Nov-16",
+    "open": 746.97,
+    "close": 758.49,
+    "format": "$d"
+  },
+  {
+    "date": "14-Nov-16",
+    "open": 755.6,
+    "close": 736.08,
+    "format": "$d"
+  },
+  {
+    "date": "11-Nov-16",
+    "open": 756.54,
+    "close": 754.02,
+    "format": "$d"
+  },
+  {
+    "date": "10-Nov-16",
+    "open": 791.17,
+    "close": 762.56,
+    "format": "$d"
+  },
+  {
+    "date": "9-Nov-16",
+    "open": 779.94,
+    "close": 785.31,
+    "format": "$d"
+  },
+  {
+    "date": "8-Nov-16",
+    "open": 783.4,
+    "close": 790.51,
+    "format": "$d"
+  },
+  {
+    "date": "7-Nov-16",
+    "open": 774.5,
+    "close": 782.52,
+    "format": "$d"
+  },
+  {
+    "date": "4-Nov-16",
+    "open": 750.66,
+    "close": 762.02,
+    "format": "$d"
+  },
+  {
+    "date": "3-Nov-16",
+    "open": 767.25,
+    "close": 762.13,
+    "format": "$d"
+  },
+  {
+    "date": "2-Nov-16",
+    "open": 778.2,
+    "close": 768.7,
+    "format": "$d"
+  },
+  {
+    "date": "1-Nov-16",
+    "open": 782.89,
+    "close": 783.61,
+    "format": "$d"
+  },
+  {
+    "date": "31-Oct-16",
+    "open": 795.47,
+    "close": 784.54,
+    "format": "$d"
+  },
+  {
+    "date": "28-Oct-16",
+    "open": 808.35,
+    "close": 795.37,
+    "format": "$d"
+  },
+  {
+    "date": "27-Oct-16",
+    "open": 801,
+    "close": 795.35,
+    "format": "$d"
+  },
+  {
+    "date": "26-Oct-16",
+    "open": 806.34,
+    "close": 799.07,
+    "format": "$d"
+  },
+  {
+    "date": "25-Oct-16",
+    "open": 816.68,
+    "close": 807.67,
+    "format": "$d"
+  },
+  {
+    "date": "24-Oct-16",
+    "open": 804.9,
+    "close": 813.11,
+    "format": "$d"
+  },
+  {
+    "date": "21-Oct-16",
+    "open": 795,
+    "close": 799.37,
+    "format": "$d"
+  },
+  {
+    "date": "20-Oct-16",
+    "open": 803.3,
+    "close": 796.97,
+    "format": "$d"
+  },
+  {
+    "date": "19-Oct-16",
+    "open": 798.86,
+    "close": 801.56,
+    "format": "$d"
+  },
+  {
+    "date": "18-Oct-16",
+    "open": 787.85,
+    "close": 795.26,
+    "format": "$d"
+  },
+  {
+    "date": "17-Oct-16",
+    "open": 779.8,
+    "close": 779.96,
+    "format": "$d"
+  },
+  {
+    "date": "14-Oct-16",
+    "open": 781.65,
+    "close": 778.53,
+    "format": "$d"
+  },
+  {
+    "date": "13-Oct-16",
+    "open": 781.22,
+    "close": 778.19,
+    "format": "$d"
+  },
+  {
+    "date": "12-Oct-16",
+    "open": 783.76,
+    "close": 786.14,
+    "format": "$d"
+  },
+  {
+    "date": "11-Oct-16",
+    "open": 786.66,
+    "close": 783.07,
+    "format": "$d"
+  },
+  {
+    "date": "10-Oct-16",
+    "open": 777.71,
+    "close": 785.94,
+    "format": "$d"
+  },
+  {
+    "date": "7-Oct-16",
+    "open": 779.66,
+    "close": 775.08,
+    "format": "$d"
+  },
+  {
+    "date": "6-Oct-16",
+    "open": 779,
+    "close": 776.86,
+    "format": "$d"
+  },
+  {
+    "date": "5-Oct-16",
+    "open": 779.31,
+    "close": 776.47,
+    "format": "$d"
+  },
+  {
+    "date": "4-Oct-16",
+    "open": 776.03,
+    "close": 776.43,
+    "format": "$d"
+  },
+  {
+    "date": "3-Oct-16",
+    "open": 774.25,
+    "close": 772.56,
+    "format": "$d"
+  },
+  {
+    "date": "30-Sep-16",
+    "open": 776.33,
+    "close": 777.29,
+    "format": "$d"
+  },
+  {
+    "date": "29-Sep-16",
+    "open": 781.44,
+    "close": 775.01,
+    "format": "$d"
+  },
+  {
+    "date": "28-Sep-16",
+    "open": 777.85,
+    "close": 781.56,
+    "format": "$d"
+  },
+  {
+    "date": "27-Sep-16",
+    "open": 775.5,
+    "close": 783.01,
+    "format": "$d"
+  },
+  {
+    "date": "26-Sep-16",
+    "open": 782.74,
+    "close": 774.21,
+    "format": "$d"
+  },
+  {
+    "date": "23-Sep-16",
+    "open": 786.59,
+    "close": 786.9,
+    "format": "$d"
+  },
+  {
+    "date": "22-Sep-16",
+    "open": 780,
+    "close": 787.21,
+    "format": "$d"
+  },
+  {
+    "date": "21-Sep-16",
+    "open": 772.66,
+    "close": 776.22,
+    "format": "$d"
+  },
+  {
+    "date": "20-Sep-16",
+    "open": 769,
+    "close": 771.41,
+    "format": "$d"
+  },
+  {
+    "date": "19-Sep-16",
+    "open": 772.42,
+    "close": 765.7,
+    "format": "$d"
+  },
+  {
+    "date": "16-Sep-16",
+    "open": 769.75,
+    "close": 768.88,
+    "format": "$d"
+  },
+  {
+    "date": "15-Sep-16",
+    "open": 762.89,
+    "close": 771.76,
+    "format": "$d"
+  },
+  {
+    "date": "14-Sep-16",
+    "open": 759.61,
+    "close": 762.49,
+    "format": "$d"
+  },
+  {
+    "date": "13-Sep-16",
+    "open": 764.48,
+    "close": 759.69,
+    "format": "$d"
+  },
+  {
+    "date": "12-Sep-16",
+    "open": 755.13,
+    "close": 769.02,
+    "format": "$d"
+  },
+  {
+    "date": "9-Sep-16",
+    "open": 770.1,
+    "close": 759.66,
+    "format": "$d"
+  },
+  {
+    "date": "8-Sep-16",
+    "open": 778.59,
+    "close": 775.32,
+    "format": "$d"
+  },
+  {
+    "date": "7-Sep-16",
+    "open": 780,
+    "close": 780.35,
+    "format": "$d"
+  },
+  {
+    "date": "6-Sep-16",
+    "open": 773.45,
+    "close": 780.08,
+    "format": "$d"
+  },
+  {
+    "date": "2-Sep-16",
+    "open": 773.01,
+    "close": 771.46,
+    "format": "$d"
+  },
+  {
+    "date": "1-Sep-16",
+    "open": 769.25,
+    "close": 768.78,
+    "format": "$d"
+  },
+  {
+    "date": "31-Aug-16",
+    "open": 767.01,
+    "close": 767.05,
+    "format": "$d"
+  },
+  {
+    "date": "30-Aug-16",
+    "open": 769.33,
+    "close": 769.09,
+    "format": "$d"
+  },
+  {
+    "date": "29-Aug-16",
+    "open": 768.74,
+    "close": 772.15,
+    "format": "$d"
+  },
+  {
+    "date": "26-Aug-16",
+    "open": 769,
+    "close": 769.54,
+    "format": "$d"
+  },
+  {
+    "date": "25-Aug-16",
+    "open": 767,
+    "close": 769.41,
+    "format": "$d"
+  },
+  {
+    "date": "24-Aug-16",
+    "open": 770.58,
+    "close": 769.64,
+    "format": "$d"
+  },
+  {
+    "date": "23-Aug-16",
+    "open": 775.48,
+    "close": 772.08,
+    "format": "$d"
+  },
+  {
+    "date": "22-Aug-16",
+    "open": 773.27,
+    "close": 772.15,
+    "format": "$d"
+  },
+  {
+    "date": "19-Aug-16",
+    "open": 775,
+    "close": 775.42,
+    "format": "$d"
+  },
+  {
+    "date": "18-Aug-16",
+    "open": 780.01,
+    "close": 777.5,
+    "format": "$d"
+  },
+  {
+    "date": "17-Aug-16",
+    "open": 777.32,
+    "close": 779.91,
+    "format": "$d"
+  },
+  {
+    "date": "16-Aug-16",
+    "open": 780.3,
+    "close": 777.14,
+    "format": "$d"
+  },
+  {
+    "date": "15-Aug-16",
+    "open": 783.75,
+    "close": 782.44,
+    "format": "$d"
+  },
+  {
+    "date": "12-Aug-16",
+    "open": 781.5,
+    "close": 783.22,
+    "format": "$d"
+  },
+  {
+    "date": "11-Aug-16",
+    "open": 785,
+    "close": 784.85,
+    "format": "$d"
+  },
+  {
+    "date": "10-Aug-16",
+    "open": 783.75,
+    "close": 784.68,
+    "format": "$d"
+  },
+  {
+    "date": "9-Aug-16",
+    "open": 781.1,
+    "close": 784.26,
+    "format": "$d"
+  },
+  {
+    "date": "8-Aug-16",
+    "open": 782,
+    "close": 781.76,
+    "format": "$d"
+  },
+  {
+    "date": "5-Aug-16",
+    "open": 773.78,
+    "close": 782.22,
+    "format": "$d"
+  },
+  {
+    "date": "4-Aug-16",
+    "open": 772.22,
+    "close": 771.61,
+    "format": "$d"
+  },
+  {
+    "date": "3-Aug-16",
+    "open": 767.18,
+    "close": 773.18,
+    "format": "$d"
+  },
+  {
+    "date": "2-Aug-16",
+    "open": 768.69,
+    "close": 771.07,
+    "format": "$d"
+  },
+  {
+    "date": "1-Aug-16",
+    "open": 761.09,
+    "close": 772.88,
+    "format": "$d"
+  },
+  {
+    "date": "29-Jul-16",
+    "open": 772.71,
+    "close": 768.79,
+    "format": "$d"
+  },
+  {
+    "date": "28-Jul-16",
+    "open": 747.04,
+    "close": 745.91,
+    "format": "$d"
+  },
+  {
+    "date": "27-Jul-16",
+    "open": 738.28,
+    "close": 741.77,
+    "format": "$d"
+  },
+  {
+    "date": "26-Jul-16",
+    "open": 739.04,
+    "close": 738.42,
+    "format": "$d"
+  },
+  {
+    "date": "25-Jul-16",
+    "open": 740.67,
+    "close": 739.77,
+    "format": "$d"
+  },
+  {
+    "date": "22-Jul-16",
+    "open": 741.86,
+    "close": 742.74,
+    "format": "$d"
+  },
+  {
+    "date": "21-Jul-16",
+    "open": 740.36,
+    "close": 738.63,
+    "format": "$d"
+  },
+  {
+    "date": "20-Jul-16",
+    "open": 737.33,
+    "close": 741.19,
+    "format": "$d"
+  },
+  {
+    "date": "19-Jul-16",
+    "open": 729.89,
+    "close": 736.96,
+    "format": "$d"
+  },
+  {
+    "date": "18-Jul-16",
+    "open": 722.71,
+    "close": 733.78,
+    "format": "$d"
+  },
+  {
+    "date": "15-Jul-16",
+    "open": 725.73,
+    "close": 719.85,
+    "format": "$d"
+  },
+  {
+    "date": "14-Jul-16",
+    "open": 721.58,
+    "close": 720.95,
+    "format": "$d"
+  },
+  {
+    "date": "13-Jul-16",
+    "open": 723.62,
+    "close": 716.98,
+    "format": "$d"
+  },
+  {
+    "date": "12-Jul-16",
+    "open": 719.12,
+    "close": 720.64,
+    "format": "$d"
+  },
+  {
+    "date": "11-Jul-16",
+    "open": 708.05,
+    "close": 715.09,
+    "format": "$d"
+  },
+  {
+    "date": "8-Jul-16",
+    "open": 699.5,
+    "close": 705.63,
+    "format": "$d"
+  },
+  {
+    "date": "7-Jul-16",
+    "open": 698.08,
+    "close": 695.36,
+    "format": "$d"
+  },
+  {
+    "date": "6-Jul-16",
+    "open": 689.98,
+    "close": 697.77,
+    "format": "$d"
+  },
+  {
+    "date": "5-Jul-16",
+    "open": 696.06,
+    "close": 694.49,
+    "format": "$d"
+  },
+  {
+    "date": "1-Jul-16",
+    "open": 692.2,
+    "close": 699.21,
+    "format": "$d"
+  },
+  {
+    "date": "30-Jun-16",
+    "open": 685.47,
+    "close": 692.1,
+    "format": "$d"
+  },
+  {
+    "date": "29-Jun-16",
+    "open": 683,
+    "close": 684.11,
+    "format": "$d"
+  },
+  {
+    "date": "28-Jun-16",
+    "open": 678.97,
+    "close": 680.04,
+    "format": "$d"
+  },
+  {
+    "date": "27-Jun-16",
+    "open": 671,
+    "close": 668.26,
+    "format": "$d"
+  },
+  {
+    "date": "24-Jun-16",
+    "open": 675.17,
+    "close": 675.22,
+    "format": "$d"
+  },
+  {
+    "date": "23-Jun-16",
+    "open": 697.45,
+    "close": 701.87,
+    "format": "$d"
+  },
+  {
+    "date": "22-Jun-16",
+    "open": 699.06,
+    "close": 697.46,
+    "format": "$d"
+  },
+  {
+    "date": "21-Jun-16",
+    "open": 698.4,
+    "close": 695.94,
+    "format": "$d"
+  },
+  {
+    "date": "20-Jun-16",
+    "open": 698.77,
+    "close": 693.71,
+    "format": "$d"
+  },
+  {
+    "date": "17-Jun-16",
+    "open": 708.65,
+    "close": 691.72,
+    "format": "$d"
+  },
+  {
+    "date": "16-Jun-16",
+    "open": 714.91,
+    "close": 710.36,
+    "format": "$d"
+  },
+  {
+    "date": "15-Jun-16",
+    "open": 719,
+    "close": 718.92,
+    "format": "$d"
+  },
+  {
+    "date": "14-Jun-16",
+    "open": 716.48,
+    "close": 718.27,
+    "format": "$d"
+  },
+  {
+    "date": "13-Jun-16",
+    "open": 716.51,
+    "close": 718.36,
+    "format": "$d"
+  },
+  {
+    "date": "10-Jun-16",
+    "open": 719.47,
+    "close": 719.41,
+    "format": "$d"
+  },
+  {
+    "date": "9-Jun-16",
+    "open": 722.87,
+    "close": 728.58,
+    "format": "$d"
+  },
+  {
+    "date": "8-Jun-16",
+    "open": 723.96,
+    "close": 728.28,
+    "format": "$d"
+  },
+  {
+    "date": "7-Jun-16",
+    "open": 719.84,
+    "close": 716.65,
+    "format": "$d"
+  },
+  {
+    "date": "6-Jun-16",
+    "open": 724.91,
+    "close": 716.55,
+    "format": "$d"
+  },
+  {
+    "date": "3-Jun-16",
+    "open": 729.27,
+    "close": 722.34,
+    "format": "$d"
+  },
+  {
+    "date": "2-Jun-16",
+    "open": 732.5,
+    "close": 730.4,
+    "format": "$d"
+  },
+  {
+    "date": "1-Jun-16",
+    "open": 734.53,
+    "close": 734.15,
+    "format": "$d"
+  },
+  {
+    "date": "31-May-16",
+    "open": 731.74,
+    "close": 735.72,
+    "format": "$d"
+  },
+  {
+    "date": "27-May-16",
+    "open": 724.01,
+    "close": 732.66,
+    "format": "$d"
+  },
+  {
+    "date": "26-May-16",
+    "open": 722.87,
+    "close": 724.12,
+    "format": "$d"
+  },
+  {
+    "date": "25-May-16",
+    "open": 720.76,
+    "close": 725.27,
+    "format": "$d"
+  },
+  {
+    "date": "24-May-16",
+    "open": 706.86,
+    "close": 720.09,
+    "format": "$d"
+  },
+  {
+    "date": "23-May-16",
+    "open": 706.53,
+    "close": 704.24,
+    "format": "$d"
+  },
+  {
+    "date": "20-May-16",
+    "open": 701.62,
+    "close": 709.74,
+    "format": "$d"
+  },
+  {
+    "date": "19-May-16",
+    "open": 702.36,
+    "close": 700.32,
+    "format": "$d"
+  },
+  {
+    "date": "18-May-16",
+    "open": 703.67,
+    "close": 706.63,
+    "format": "$d"
+  },
+  {
+    "date": "17-May-16",
+    "open": 715.99,
+    "close": 706.23,
+    "format": "$d"
+  },
+  {
+    "date": "16-May-16",
+    "open": 709.13,
+    "close": 716.49,
+    "format": "$d"
+  },
+  {
+    "date": "13-May-16",
+    "open": 711.93,
+    "close": 710.83,
+    "format": "$d"
+  },
+  {
+    "date": "12-May-16",
+    "open": 717.06,
+    "close": 713.31,
+    "format": "$d"
+  },
+  {
+    "date": "11-May-16",
+    "open": 723.41,
+    "close": 715.29,
+    "format": "$d"
+  },
+  {
+    "date": "10-May-16",
+    "open": 716.75,
+    "close": 723.18,
+    "format": "$d"
+  },
+  {
+    "date": "9-May-16",
+    "open": 712,
+    "close": 712.9,
+    "format": "$d"
+  },
+  {
+    "date": "6-May-16",
+    "open": 698.38,
+    "close": 711.12,
+    "format": "$d"
+  },
+  {
+    "date": "5-May-16",
+    "open": 697.7,
+    "close": 701.43,
+    "format": "$d"
+  },
+  {
+    "date": "4-May-16",
+    "open": 690.49,
+    "close": 695.7,
+    "format": "$d"
+  },
+  {
+    "date": "3-May-16",
+    "open": 696.87,
+    "close": 692.36,
+    "format": "$d"
+  },
+  {
+    "date": "2-May-16",
+    "open": 697.63,
+    "close": 698.21,
+    "format": "$d"
+  },
+  {
+    "date": "29-Apr-16",
+    "open": 690.7,
+    "close": 693.01,
+    "format": "$d"
+  },
+  {
+    "date": "28-Apr-16",
+    "open": 708.26,
+    "close": 691.02,
+    "format": "$d"
+  },
+  {
+    "date": "27-Apr-16",
+    "open": 707.29,
+    "close": 705.84,
+    "format": "$d"
+  },
+  {
+    "date": "26-Apr-16",
+    "open": 725.42,
+    "close": 708.14,
+    "format": "$d"
+  },
+  {
+    "date": "25-Apr-16",
+    "open": 716.1,
+    "close": 723.15,
+    "format": "$d"
+  },
+  {
+    "date": "22-Apr-16",
+    "open": 726.3,
+    "close": 718.77,
+    "format": "$d"
+  },
+  {
+    "date": "21-Apr-16",
+    "open": 755.38,
+    "close": 759.14,
+    "format": "$d"
+  },
+  {
+    "date": "20-Apr-16",
+    "open": 758,
+    "close": 752.67,
+    "format": "$d"
+  },
+  {
+    "date": "19-Apr-16",
+    "open": 769.51,
+    "close": 753.93,
+    "format": "$d"
+  },
+  {
+    "date": "18-Apr-16",
+    "open": 760.46,
+    "close": 766.61,
+    "format": "$d"
+  },
+  {
+    "date": "15-Apr-16",
+    "open": 753.98,
+    "close": 759,
+    "format": "$d"
+  },
+  {
+    "date": "14-Apr-16",
+    "open": 754.01,
+    "close": 753.2,
+    "format": "$d"
+  },
+  {
+    "date": "13-Apr-16",
+    "open": 749.16,
+    "close": 751.72,
+    "format": "$d"
+  },
+  {
+    "date": "12-Apr-16",
+    "open": 738,
+    "close": 743.09,
+    "format": "$d"
+  },
+  {
+    "date": "11-Apr-16",
+    "open": 743.02,
+    "close": 736.1,
+    "format": "$d"
+  },
+  {
+    "date": "8-Apr-16",
+    "open": 743.97,
+    "close": 739.15,
+    "format": "$d"
+  },
+  {
+    "date": "7-Apr-16",
+    "open": 745.37,
+    "close": 740.28,
+    "format": "$d"
+  },
+  {
+    "date": "6-Apr-16",
+    "open": 735.77,
+    "close": 745.69,
+    "format": "$d"
+  },
+  {
+    "date": "5-Apr-16",
+    "open": 738,
+    "close": 737.8,
+    "format": "$d"
+  },
+  {
+    "date": "4-Apr-16",
+    "open": 750.06,
+    "close": 745.29,
+    "format": "$d"
+  },
+  {
+    "date": "1-Apr-16",
+    "open": 738.6,
+    "close": 749.91,
+    "format": "$d"
+  },
+  {
+    "date": "31-Mar-16",
+    "open": 749.25,
+    "close": 744.95,
+    "format": "$d"
+  },
+  {
+    "date": "30-Mar-16",
+    "open": 750.1,
+    "close": 750.53,
+    "format": "$d"
+  },
+  {
+    "date": "29-Mar-16",
+    "open": 734.59,
+    "close": 744.77,
+    "format": "$d"
+  },
+  {
+    "date": "28-Mar-16",
+    "open": 736.79,
+    "close": 733.53,
+    "format": "$d"
+  },
+  {
+    "date": "24-Mar-16",
+    "open": 732.01,
+    "close": 735.3,
+    "format": "$d"
+  },
+  {
+    "date": "23-Mar-16",
+    "open": 742.36,
+    "close": 738.06,
+    "format": "$d"
+  },
+  {
+    "date": "22-Mar-16",
+    "open": 737.46,
+    "close": 740.75,
+    "format": "$d"
+  },
+  {
+    "date": "21-Mar-16",
+    "open": 736.5,
+    "close": 742.09,
+    "format": "$d"
+  }
+]
