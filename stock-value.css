@@ -1,0 +1,34 @@
+stock-value:not([suffix-symbol]):before {
+  margin-right: 4px;
+}
+
+stock-value[suffix-symbol]:after {
+  margin-left: 4px;
+}
+
+stock-value.up {
+  color: var(--stock-value-up-color, green);
+}
+
+stock-value.up:not([suffix-symbol]):before,
+stock-value.up[suffix-symbol]:after {
+  content: var(--stock-value-up-symbol, '⬆');
+}
+
+stock-value.down {
+  color: var(--stock-value-down-color, red);
+}
+
+stock-value.down:not([suffix-symbol]):before,
+stock-value.down[suffix-symbol]:after {
+  content: var(--stock-value-down-symbol, '⬇');
+}
+
+stock-value.neutral {
+  color: var(--stock-value-neutral-color, #666);
+}
+
+stock-value.neutral:not([suffix-symbol]):before,
+stock-value.neutral[suffix-symbol]:after {
+  content: var(--stock-value-neutral-symbol);
+}
