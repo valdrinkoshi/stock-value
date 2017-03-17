@@ -68,8 +68,16 @@
       constructor() {
         super();
 
+        /**
+         * @type {number|null}
+         * @private
+         */
         this._attributesChangingDebouncer = null;
 
+        /**
+         * @type {!Object}
+         * @private
+         */
         this._props = {
           current: null,
           previous: null,
@@ -85,15 +93,15 @@
 
       /** 
        * The current value.
-       * @type {Number|null}
+       * @type {number|null}
        */
       get current() {
         return this._props.current;
       }
 
       /** 
-       * @param {Number|null}
-       * @returns {Number|null}
+       * @param {number|null}
+       * @returns {number|null}
        */
       set current(c) {
         // Accept null or Number.
@@ -106,15 +114,15 @@
 
       /** 
        * The previous value.
-       * @type {Number|null}
+       * @type {number|null}
        */
       get previous() {
         return this._props.previous;
       }
 
       /** 
-       * @param {Number|null}
-       * @returns {Number|null}
+       * @param {number|null}
+       * @returns {number|null}
        */
       set previous(c) {
         // Accept null or Number.
@@ -128,15 +136,15 @@
       /** 
        * Set to 'difference' or 'percent' to change what is displayed.
        * Unset to display both (default). 
-       * @type {String|null}
+       * @type {string|null}
        */
       get only() {
         return this._props.only;
       }
 
       /** 
-       * @param {String|null}
-       * @returns {String|null}
+       * @param {string|null}
+       * @returns {string|null}
        */
       set only(c) {
         // Accept only 'percent' or 'difference'.
@@ -146,9 +154,10 @@
         this._updateTextcontent();
         return c;
       }
+
       /** 
        * The difference.
-       * @type {!Number}
+       * @type {!number}
        */
       get difference() {
         return this._props.difference;
@@ -156,7 +165,7 @@
 
       /** 
        * The difference percent.
-       * @type {!Number}
+       * @type {!number}
        */
       get percent() {
         return this._props.percent;
@@ -200,23 +209,6 @@
             break;
         }
         this.textContent = this._wrapperEl.textContent = tc;
-      }
-
-      /** 
-       * @private
-       */
-      _computeFmtDifference(value, only) {
-        if (only === 'percent') return '';
-        return this._computeFmtValue(value);
-      }
-
-      /** 
-       * @private
-       */
-      _computeFmtPercent(value, only) {
-        if (only === 'difference') return '';
-        const fmtValue = this._computeFmtValue(value) + '%';
-        return only === 'percent' ? fmtValue : '(' + fmtValue + ')';
       }
 
       /** 
