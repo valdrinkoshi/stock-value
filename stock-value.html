@@ -79,8 +79,8 @@
           current: null,
           previous: null,
           only: null,
-          difference: 0,
-          percent: 0,
+          difference: null,
+          percent: null,
           formattedValue: null
         };
       }
@@ -151,7 +151,7 @@
 
       /** 
        * The difference.
-       * @type {!number}
+       * @type {number|null}
        */
       get difference() {
         return this._props.difference;
@@ -159,7 +159,7 @@
 
       /** 
        * The difference percent.
-       * @type {!number}
+       * @type {number|null}
        */
       get percent() {
         return this._props.percent;
