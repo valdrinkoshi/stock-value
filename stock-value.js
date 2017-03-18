@@ -155,7 +155,7 @@
         bubbles: false,
         cancelable: false,
         detail: {
-          value: val
+          value: diff
         }
       }));
       this._updateFormattedValue();
@@ -184,7 +184,7 @@
         bubbles: false,
         cancelable: false,
         detail: {
-          value: val
+          value: fmtVal
         }
       }));
     }
