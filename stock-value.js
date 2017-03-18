@@ -42,7 +42,8 @@
         previous: null,
         only: null,
         difference: 0,
-        percent: 0
+        percent: 0,
+        formattedValue: null
       };
     }
 
@@ -55,7 +56,7 @@
     }
 
     /** 
-     * @param {number|null}
+     * @param {number|null} c
      * @returns {number|null}
      */
     set current(c) {
@@ -76,7 +77,7 @@
     }
 
     /** 
-     * @param {number|null}
+     * @param {number|null} c
      * @returns {number|null}
      */
     set previous(c) {
@@ -98,7 +99,7 @@
     }
 
     /** 
-     * @param {string|null}
+     * @param {string|null} c
      * @returns {string|null}
      */
     set only(c) {
@@ -106,7 +107,7 @@
       if (c !== 'percent' && c !== 'difference') c = null;
       if (c === this._props.only) return c;
       this._props.only = c;
-      this._updateTextcontent();
+      this._updateFormattedValue();
       return c;
     }
 
@@ -126,53 +127,75 @@
       return this._props.percent;
     }
 
+
+    /** 
+     * The formatted value.
+     * @type {string|null}
+     */
+    get formattedValue() {
+      return this._props.formattedValue;
+    }
+
     /** 
      * @private
      */
     _updateDifferencePercent() {
+      if (this._attributesChangingDebouncer) return;
       const cur = this.current,
         prev = this.previous,
         diff = (cur === null || prev === null) ? 0 : cur - prev,
         perc = (!diff || !prev) ? 0 : 100 * (diff / prev);
-
-      this._props.difference = diff;
-      this._props.percent = perc;
-
-      if (this._attributesChangingDebouncer) return;
-
-      this.classList.toggle('neutral', diff === 0);
-      this.classList.toggle('up', diff > 0);
-      this.classList.toggle('down', diff < 0);
-      this._updateTextcontent();
+      this._setProperty('difference', diff);
+      this._setProperty('percent', perc);
+      this._updateFormattedValue();
     }
 
     /** 
      * @private
      */
-    _updateTextcontent() {
+    _setProperty(p, val) {
+      if (this._props[p] === val) return;
+      this._props[p] = val;
+      this.dispatchEvent(new CustomEvent(p + '-changed', {
+        bubbles: false,
+        cancelable: false,
+        detail: {
+          value: val
+        }
+      }));
+      return true;
+    }
+
+    /** 
+     * @private
+     */
+    _updateFormattedValue() {
       if (this._attributesChangingDebouncer) return;
-      let tc;
+      let fmtVal;
       switch (this.only) {
         case 'difference':
-          tc = this._computeFmtValue(this.difference);
+          fmtVal = this._formatNumber(this.difference);
           break;
         case 'percent':
-          tc = this._computeFmtValue(this.percent) + '%';
+          fmtVal = this._formatNumber(this.percent) + '%';
           break;
         default:
-          tc = this._computeFmtValue(this.difference) + ' (' + this._computeFmtValue(this.percent) + '%)';
+          fmtVal = this._formatNumber(this.difference) + ' (' + this._formatNumber(this.percent) + '%)';
           break;
       }
-      this.textContent = tc;
+      if (this._setProperty('formattedValue', fmtVal)) {
+        this.textContent = fmtVal;
+      }
     }
 
     /** 
+     * @param {!number} num
      * @private
      */
-    _computeFmtValue(value) {
-      return (value > 0 ? '+' : '') + value.toLocaleString(undefined, {
+    _formatNumber(num) {
+      return (num > 0 ? '+' : '') + num.toLocaleString(undefined, {
         minimumFractionDigits: 2,
-        maximumFractionDigits: Math.abs(value * 100) < 1 ? 4 : 2
+        maximumFractionDigits: Math.abs(num * 100) < 1 ? 4 : 2
       });
     }
   }
