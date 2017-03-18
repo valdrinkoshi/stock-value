@@ -37,95 +37,97 @@
 </style>
 
 <script>
-  class StockValue extends Polymer.Element {
-    static get is() {
-      return 'stock-value'
-    }
-    static get properties() {
-      return {
-        /** 
-         * The current value.
-         */
-        current: {
-          type: Number
-        },
-        /** 
-         * The previous value.
-         */
-        previous: {
-          type: Number
-        },
-        /** 
-         * The difference.
-         */
-        difference: {
-          type: Number,
-          nofify: true,
-          computed: '_computeDifference(current, previous)'
-        },
-        /** 
-         * The difference percent.
-         */
-        percent: {
-          type: Number,
-          computed: '_computePercent(difference, previous)'
-        },
-        /** 
-         * Set to 'difference' or 'percent' to change what is displayed.
-         * Unset to display both (default). 
-         */
-        only: {
-          type: String,
-          value: null
-        },
-        /** 
-         * The formatted value.
-         */
-        formattedValue: {
-          type: String,
-          nofify: true,
-          computed: '_computeFmtValue(difference, percent, only)'
+  (() => {
+    class StockValue extends Polymer.Element {
+      static get is() {
+        return 'stock-value'
+      }
+      static get properties() {
+        return {
+          /** 
+           * The current value.
+           */
+          current: {
+            type: Number
+          },
+          /** 
+           * The previous value.
+           */
+          previous: {
+            type: Number
+          },
+          /** 
+           * The difference.
+           */
+          difference: {
+            type: Number,
+            nofify: true,
+            computed: '_computeDifference(current, previous)'
+          },
+          /** 
+           * The difference percent.
+           */
+          percent: {
+            type: Number,
+            computed: '_computePercent(difference, previous)'
+          },
+          /** 
+           * Set to 'difference' or 'percent' to change what is displayed.
+           * Unset to display both (default). 
+           */
+          only: {
+            type: String,
+            value: null
+          },
+          /** 
+           * The formatted value.
+           */
+          formattedValue: {
+            type: String,
+            nofify: true,
+            computed: '_computeFmtValue(difference, percent, only)'
+          }
         }
       }
-    }
 
-    _computeDifference(current, previous) {
-      const diff = !Number.isFinite(current) || !Number.isFinite(previous) ? 0 : current - previous;
-      this.classList.toggle('neutral', diff === 0);
-      this.classList.toggle('up', diff > 0);
-      this.classList.toggle('down', diff < 0);
-      return diff;
-    }
-
-    _computePercent(difference, previous) {
-      if (!previous || !Number.isFinite(difference)) return 0;
-      return 100 * (difference / previous);
-    }
-
-    _computeFmtValue(difference, percent, only) {
-      if (!Number.isFinite(difference) || !Number.isFinite(percent)) return;
-      let fmtVal;
-      switch (only) {
-        case 'difference':
-          fmtVal = this._formatNumber(difference);
-          break;
-        case 'percent':
-          fmtVal = this._formatNumber(percent) + '%';
-          break;
-        default:
-          fmtVal = this._formatNumber(difference) + ' (' + this._formatNumber(percent) + '%)';
-          break;
+      _computeDifference(current, previous) {
+        const diff = !Number.isFinite(current) || !Number.isFinite(previous) ? 0 : current - previous;
+        this.classList.toggle('neutral', diff === 0);
+        this.classList.toggle('up', diff > 0);
+        this.classList.toggle('down', diff < 0);
+        return diff;
       }
-      this.textContent = fmtVal;
-      return fmtVal;
-    }
 
-    _formatNumber(value) {
-      return (value > 0 ? '+' : '') + value.toLocaleString(undefined, {
-        minimumFractionDigits: 2,
-        maximumFractionDigits: Math.abs(value * 100) < 1 ? 4 : 2
-      });
+      _computePercent(difference, previous) {
+        if (!previous || !Number.isFinite(difference)) return 0;
+        return 100 * (difference / previous);
+      }
+
+      _computeFmtValue(difference, percent, only) {
+        if (!Number.isFinite(difference) || !Number.isFinite(percent)) return;
+        let fmtVal;
+        switch (only) {
+          case 'difference':
+            fmtVal = this._formatNumber(difference);
+            break;
+          case 'percent':
+            fmtVal = this._formatNumber(percent) + '%';
+            break;
+          default:
+            fmtVal = this._formatNumber(difference) + ' (' + this._formatNumber(percent) + '%)';
+            break;
+        }
+        this.textContent = fmtVal;
+        return fmtVal;
+      }
+
+      _formatNumber(value) {
+        return (value > 0 ? '+' : '') + value.toLocaleString(undefined, {
+          minimumFractionDigits: 2,
+          maximumFractionDigits: Math.abs(value * 100) < 1 ? 4 : 2
+        });
+      }
     }
-  }
-  customElements.define(StockValue.is, StockValue);
+    customElements.define(StockValue.is, StockValue);
+  })();
 </script>
