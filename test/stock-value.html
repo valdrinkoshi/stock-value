@@ -31,8 +31,7 @@
         assert.equal(stock.previous, 2, 'previous not set correctly');
         assert.equal(stock.difference, -1, 'difference not calculated correctly');
         assert.equal(stock.percent, -50, 'percent not calculated correctly');
-        assert.isTrue(/-1\.00\s+\(-50\.00%\)/g.test(stock.$.wrapper.textContent.trim()),
-          'formatted value is not -1.00 (-50.00%)');
+        assert.equal(stock.textContent, '-1.00 (-50.00%)', 'not formatted correctly');
       });
 
     });
