@@ -151,6 +151,10 @@
       this._props.difference = diff;
       this._props.percent = (!diff || !prev) ? 0 : 100 * (diff / prev);
 
+      this.classList.toggle('neutral', diff === 0);
+      this.classList.toggle('up', diff > 0);
+      this.classList.toggle('down', diff < 0);
+
       this.dispatchEvent(new CustomEvent('difference-changed', {
         bubbles: false,
         cancelable: false,
