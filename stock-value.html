@@ -36,7 +36,7 @@
 </style>
 
 <script>
-  (doc => {
+  (() => {
     class StockValue extends HTMLElement {
 
       static get is() {
@@ -243,5 +243,5 @@
       }
     }
     customElements.define(StockValue.is, StockValue);
-  })(document.currentScript.ownerDocument);
+  })();
 </script>
