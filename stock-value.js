@@ -141,29 +141,24 @@
      */
     _updateDifferencePercent() {
       if (this._attributesChangingDebouncer) return;
+
       const cur = this.current,
         prev = this.previous,
-        diff = (cur === null || prev === null) ? 0 : cur - prev,
-        perc = (!diff || !prev) ? 0 : 100 * (diff / prev);
-      this._setProperty('difference', diff);
-      this._setProperty('percent', perc);
-      this._updateFormattedValue();
-    }
+        diff = (cur === null || prev === null) ? 0 : cur - prev;
 
-    /** 
-     * @private
-     */
-    _setProperty(p, val) {
-      if (this._props[p] === val) return;
-      this._props[p] = val;
-      this.dispatchEvent(new CustomEvent(p + '-changed', {
+      if (this._props.difference === diff) return;
+
+      this._props.difference = diff;
+      this._props.percent = (!diff || !prev) ? 0 : 100 * (diff / prev);
+
+      this.dispatchEvent(new CustomEvent('difference-changed', {
         bubbles: false,
         cancelable: false,
         detail: {
           value: val
         }
       }));
-      return true;
+      this._updateFormattedValue();
     }
 
     /** 
@@ -183,9 +178,15 @@
           fmtVal = this._formatNumber(this.difference) + ' (' + this._formatNumber(this.percent) + '%)';
           break;
       }
-      if (this._setProperty('formattedValue', fmtVal)) {
-        this.textContent = fmtVal;
-      }
+      if (this._props.formattedValue === fmtVal) return;
+      this._props.formattedValue = this.textContent = fmtVal;
+      this.dispatchEvent(new CustomEvent('formatted-value-changed', {
+        bubbles: false,
+        cancelable: false,
+        detail: {
+          value: val
+        }
+      }));
     }
 
     /** 
