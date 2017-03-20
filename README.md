@@ -55,6 +55,7 @@ Example:
     --stock-value-down-color: orangered;
     --stock-value-neutral-symbol: '😶';
     --stock-value-neutral-color: dimgrey;
+    --stock-value-symbol-margin: 0 4px;
   }
 </style></custom-style>
 <h3>My Porfolio</h3>

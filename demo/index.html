@@ -51,6 +51,7 @@
         --stock-value-down-color: orangered;
         --stock-value-neutral-symbol: '😶';
         --stock-value-neutral-color: dimgrey;
+        --stock-value-symbol-margin: 0 4px;
       }
       
       iron-list {
@@ -60,7 +61,6 @@
       .tr {
         font-size: 0;
         width: 100%;
-        padding: 5px 0;
       }
       .tr:nth-child(even) {
         background-color: #eee;
@@ -69,10 +69,14 @@
       .tr > * {
         font-size: 14px;
         display: inline-block;
-        width: 25%;
         box-sizing: border-box;
         text-align: left;
-        padding: 5px;
+        padding: 10px 5px;
+        width: 23%;
+      }
+
+      .tr > *:last-child {
+        width: 30%;
       }
       
       .thead {
@@ -81,7 +85,6 @@
       }
     </style>
   </custom-style>
-
   <h3>Computes difference and percent</h3>
   <demo-snippet>
     <template>

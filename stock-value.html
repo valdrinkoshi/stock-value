@@ -1,46 +1,50 @@
-<style id="stock-value-styles">
-  stock-value:not([suffix-symbol]):before {
-    margin-right: 4px;
-  }
-  
-  stock-value[suffix-symbol]:after {
-    margin-left: 4px;
-  }
-  
-  stock-value.up {
-    color: var(--stock-value-up-color, green);
-  }
-  
-  stock-value.up:not([suffix-symbol]):before,
-  stock-value.up[suffix-symbol]:after {
-    content: var(--stock-value-up-symbol, '⬆');
-  }
-  
-  stock-value.down {
-    color: var(--stock-value-down-color, red);
-  }
-  
-  stock-value.down:not([suffix-symbol]):before,
-  stock-value.down[suffix-symbol]:after {
-    content: var(--stock-value-down-symbol, '⬇');
-  }
-  
-  stock-value.neutral {
-    color: var(--stock-value-neutral-color, #666);
-  }
-  
-  stock-value.neutral:not([suffix-symbol]):before,
-  stock-value.neutral[suffix-symbol]:after {
-    content: var(--stock-value-neutral-symbol);
-  }
-</style>
+<template id="stock-value">
+  <style>
+     :host(:not([suffix-symbol])):before,
+     :host([suffix-symbol]):after {
+      margin: var(--stock-value-symbol-margin);
+    }
+    
+     :host(.up) {
+      color: var(--stock-value-up-color, green);
+    }
+    
+     :host(.up:not([suffix-symbol])):before,
+     :host(.up[suffix-symbol]):after {
+      content: var(--stock-value-up-symbol, '⬆');
+    }
+    
+     :host(.down) {
+      color: var(--stock-value-down-color, red);
+    }
+    
+     :host(.down:not([suffix-symbol])):before,
+     :host(.down[suffix-symbol]):after {
+      content: var(--stock-value-down-symbol, '⬇');
+    }
+    
+     :host(.neutral) {
+      color: var(--stock-value-neutral-color, #666);
+    }
+    
+     :host(.neutral:not([suffix-symbol])):before,
+     :host(.neutral[suffix-symbol]):after {
+      content: var(--stock-value-neutral-symbol);
+    }
+  </style>
+  <slot></slot>
+</template>
 
 <script>
-  (() => {
+  (doc => {
+    const is = 'stock-value';
+    const templ = doc.querySelector('template#' + is);
+    window.ShadyCSS && ShadyCSS.prepareTemplate(templ, is);
+
     class StockValue extends HTMLElement {
 
       static get is() {
-        return 'stock-value';
+        return is;
       }
 
       static get observedAttributes() {
@@ -57,6 +61,7 @@
           this._attributesChangingDebouncer = setTimeout(() => {
             this._attributesChangingDebouncer = null;
             this._updateDifferencePercent();
+            this._updateFormattedValue();
           });
           this[name] = value;
         }
@@ -83,6 +88,17 @@
           percent: null,
           formattedValue: null
         };
+      }
+
+      connectedCallback() {
+        window.ShadyCSS && ShadyCSS.styleElement(this);
+        if (!this.shadowRoot) {
+          this.attachShadow({
+            mode: 'open'
+          });
+          this.shadowRoot.appendChild(
+            document.importNode(templ.content, true));
+        }
       }
 
       /** 
@@ -243,5 +259,5 @@
       }
     }
     customElements.define(StockValue.is, StockValue);
-  })();
+  })(document.currentScript.ownerDocument);
 </script>
