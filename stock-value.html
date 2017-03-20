@@ -4,29 +4,29 @@
      :host([suffix-symbol]):after {
       margin: var(--stock-value-symbol-margin);
     }
-    
+
      :host(.up) {
       color: var(--stock-value-up-color, green);
     }
-    
+
      :host(.up:not([suffix-symbol])):before,
      :host(.up[suffix-symbol]):after {
       content: var(--stock-value-up-symbol, '⬆');
     }
-    
+
      :host(.down) {
       color: var(--stock-value-down-color, red);
     }
-    
+
      :host(.down:not([suffix-symbol])):before,
      :host(.down[suffix-symbol]):after {
       content: var(--stock-value-down-symbol, '⬇');
     }
-    
+
      :host(.neutral) {
       color: var(--stock-value-neutral-color, #666);
     }
-    
+
      :host(.neutral:not([suffix-symbol])):before,
      :host(.neutral[suffix-symbol]):after {
       content: var(--stock-value-neutral-symbol);
@@ -37,15 +37,21 @@
 
 <script>
   (doc => {
-    const is = 'stock-value';
-    const templ = doc.querySelector('template#' + is);
-    window.ShadyCSS && ShadyCSS.prepareTemplate(templ, is);
-
-    class StockValue extends HTMLElement {
-
-      static get is() {
-        return is;
-      }
+    // Re-use formatters to format numbers.
+    const formatters = {
+      '2': new Intl.NumberFormat(undefined, {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+      }),
+      '4': new Intl.NumberFormat(undefined, {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 4
+      })
+    };
+    const tagName = 'stock-value';
+    const templ = doc.querySelector('template#' + tagName);
+    window.ShadyCSS && ShadyCSS.prepareTemplate(templ, tagName);
+    customElements.define(tagName, class StockValue extends HTMLElement {
 
       static get observedAttributes() {
         return ['current', 'previous', 'only'];
@@ -252,12 +258,9 @@
        * @private
        */
       _formatNumber(num) {
-        return (num > 0 ? '+' : '') + num.toLocaleString(undefined, {
-          minimumFractionDigits: 2,
-          maximumFractionDigits: Math.abs(num * 100) < 1 ? 4 : 2
-        });
+        const precision = Math.abs(num * 100) < 1 ? 4 : 2;
+        return (num > 0 ? '+' : '') + formatters[precision].format(num);
       }
-    }
-    customElements.define(StockValue.is, StockValue);
+    });
   })(document.currentScript.ownerDocument);
 </script>

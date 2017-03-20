@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+
+  <title>stock-value</title>
+
+  <script src="../../webcomponentsjs/webcomponents-loader.js"></script>
+  <link rel="import" href="../stock-value.html">
+
+  <custom-style>
+    <style>
+      body {
+        text-align: center;
+        font-family: 'Roboto', 'Noto', sans-serif;
+        font-weight: normal;
+        font-size: 14px;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      span {
+        display: inline-block;
+        padding: 8px;
+        margin: 5px;
+        border-radius: 5px;
+        border: 1px solid lightgray;
+        line-height: 1rem;
+      }
+
+      stock-value.styled-stock {
+        --stock-value-up-symbol: '🤑';
+        --stock-value-up-color: olivedrab;
+        --stock-value-down-symbol: '😨';
+        --stock-value-down-color: orangered;
+        --stock-value-neutral-symbol: '😶';
+        --stock-value-neutral-color: dimgrey;
+        --stock-value-symbol-margin: 0 4px;
+      }
+    </style>
+  </custom-style>
+</head>
+
+<body>
+  <h3>World Markets</h3>
+  <span>Oil $48.68 <stock-value current="48.68" previous="48.68"></stock-value></span>
+  <span>Euro $1.07 <stock-value current="1.081421" previous="1.085135"></stock-value></span>
+  <span>Gold $1,213.90 <stock-value current="1213.90123" previous="1211.781"></stock-value></span>
+
+  <h3>My Porfolio</h3>
+  <span>Total gain/loss: <stock-value class="styled-stock" current="120.12" previous="1.35" only="difference" suffix-symbol></stock-value></span>
+  <span>Today vs yesterday: <stock-value class="styled-stock" current="120.12" previous="120.12" only="percent" suffix-symbol></stock-value></span>
+  <span>Today vs 1 week ago: <stock-value class="styled-stock" current="120.12" previous="123.11" only="percent" suffix-symbol></stock-value></span>
+</body>
+
+</html>
