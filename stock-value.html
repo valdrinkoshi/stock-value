@@ -51,22 +51,6 @@
         return ['current', 'previous', 'only'];
       }
 
-      attributeChangedCallback(name, old, value) {
-        // Skip updating properties when e.g. `old = "1"` and `value = 1`
-        if (old != value) {
-          // Convert to number only if attribute is current or previous.
-          value = name === 'only' ? value : Number(value);
-          // Wait all attributes to be done changing.
-          this._attributesChangingDebouncer && clearTimeout(this._attributesChangingDebouncer);
-          this._attributesChangingDebouncer = setTimeout(() => {
-            this._attributesChangingDebouncer = null;
-            this._updateDifferencePercent();
-            this._updateFormattedValue();
-          });
-          this[name] = value;
-        }
-      }
-
       constructor() {
         super();
 
@@ -88,6 +72,22 @@
           percent: null,
           formattedValue: null
         };
+      }
+
+      attributeChangedCallback(name, old, value) {
+        // Skip updating properties when e.g. `old = "1"` and `value = 1`
+        if (old != value) {
+          // Wait all attributes to be done changing.
+          this._attributesChangingDebouncer && clearTimeout(this._attributesChangingDebouncer);
+          this._attributesChangingDebouncer = setTimeout(() => {
+            this._attributesChangingDebouncer = null;
+            this._updateDifferencePercent();
+            this._updateFormattedValue();
+          });
+          // Convert to number only if attribute is current or previous.
+          value = name === 'only' ? value : Number(value);
+          this[name] = value;
+        }
       }
 
       connectedCallback() {
