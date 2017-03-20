@@ -29,20 +29,22 @@
           max-height: 250px;
         }
       }
-      
+
       stock-value {
         line-height: 1rem;
       }
-      
-      paper-input {
+
+      paper-input,
+      paper-dropdown-menu {
         display: inline-block;
+        width: 32%;
       }
-      
+
       .stock-wrapper {
         text-align: center;
         padding: 2rem 0;
       }
-      
+
       stock-value[stylish] {
         font-weight: bold;
         --stock-value-up-symbol: '🤑';
@@ -53,19 +55,20 @@
         --stock-value-neutral-color: dimgrey;
         --stock-value-symbol-margin: 0 4px;
       }
-      
+
       iron-list {
         height: 25vh;
       }
-      
+
       .tr {
         font-size: 0;
         width: 100%;
       }
+
       .tr:nth-child(even) {
         background-color: #eee;
       }
-      
+
       .tr > * {
         font-size: 14px;
         display: inline-block;
@@ -75,10 +78,11 @@
         width: 23%;
       }
 
-      .tr > *:last-child {
+      .tr > stock-value {
         width: 30%;
+        cursor: pointer;
       }
-      
+
       .thead {
         font-weight: bold;
         border-bottom: 1px solid lightgray;
@@ -121,15 +125,11 @@
     <template>
       <dom-bind id="domBind2">
         <template>
-          <paper-dropdown-menu label="Display" selected-item-label="{{displayMode}}">
-            <paper-listbox class="dropdown-content" selected="0">
-              <paper-item>both</paper-item>
-              <paper-item>difference</paper-item>
-              <paper-item>percent</paper-item>
-            </paper-listbox>
-          </paper-dropdown-menu>
-          <paper-checkbox checked="{{stylish}}">make it stylish</paper-checkbox>
-          <paper-checkbox checked="{{suffixSymbol}}">suffix symbol</paper-checkbox>
+          <p>
+            <paper-checkbox checked="{{stylish}}">make it stylish</paper-checkbox>
+            <paper-checkbox checked="{{suffixSymbol}}">suffix symbol</paper-checkbox>
+          </p>
+
           <div class="tr thead">
             <div>Date</div>
             <div>Open</div>
@@ -143,10 +143,8 @@
                 <div>[[item.date]]</div>
                 <div>[[format(item.open, item.format)]]</div>
                 <div>[[format(item.close, item.format)]]</div>
-                <div>
-                  <stock-value stylish$="[[stylish]]" suffix-symbol$="[[suffixSymbol]]" current$="[[item.close]]" previous$="[[item.open]]"
-                    only$="[[displayMode]]"></stock-value>
-                </div>
+                <stock-value stylish$="[[stylish]]" suffix-symbol$="[[suffixSymbol]]" current$="[[item.close]]" previous$="[[item.open]]"
+                  only$="[[displayMode]]" on-click="changeDisplayMode"></stock-value>
               </div>
             </template>
           </iron-list>
@@ -158,6 +156,13 @@
           return (fmt || 'd').replace('d', value.toLocaleString(undefined, {
             maximumFractionDigits: 2
           }));
+        };
+        domBind2.displayModes = [null, 'difference', 'percent'];
+        domBind2.displayMode = null;
+        domBind2.changeDisplayMode = function() {
+          var i = domBind2.displayModes.indexOf(domBind2.displayMode);
+          i = (i + 1) % domBind2.displayModes.length;
+          domBind2.displayMode = domBind2.displayModes[i];
         };
       </script>
     </template>
