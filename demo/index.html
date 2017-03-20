@@ -16,6 +16,8 @@
   <link rel="import" href="../../paper-listbox/paper-listbox.html">
   <link rel="import" href="../../paper-item/paper-item.html">
   <link rel="import" href="../../paper-checkbox/paper-checkbox.html">
+  <link rel="import" href="../../iron-ajax/iron-ajax.html">
+  <link rel="import" href="../../iron-list/iron-list.html">
   <link rel="import" href="../stock-value.html">
 </head>
 
@@ -49,31 +51,40 @@
         --stock-value-down-color: orangered;
         --stock-value-neutral-symbol: '😶';
         --stock-value-neutral-color: dimgrey;
+        --stock-value-symbol-margin: 0 4px;
       }
       
-      .table {
-        display: table;
-        width: 100%;
+      iron-list {
+        height: 25vh;
       }
       
       .tr {
-        display: table-row;
+        font-size: 0;
+        width: 100%;
+      }
+      .tr:nth-child(even) {
+        background-color: #eee;
       }
       
-      .td,
-      .th {
-        display: table-cell;
+      .tr > * {
+        font-size: 14px;
+        display: inline-block;
+        box-sizing: border-box;
         text-align: left;
-        padding: 5px;
+        padding: 10px 5px;
+        width: 23%;
+      }
+
+      .tr > *:last-child {
+        width: 30%;
       }
       
-      .th {
+      .thead {
         font-weight: bold;
-        padding-bottom: 10px;
+        border-bottom: 1px solid lightgray;
       }
     </style>
   </custom-style>
-
   <h3>Computes difference and percent</h3>
   <demo-snippet>
     <template>
@@ -93,95 +104,61 @@
             <paper-checkbox checked="{{suffixSymbol}}">suffix symbol</paper-checkbox>
           </p>
           <div class="stock-wrapper">
-            <stock-value stylish$="[[stylish]]" suffix-symbol$="[[suffixSymbol]]" current="[[toNumber(current)]]" previous="[[toNumber(previous)]]"
-              only="[[displayMode]]"></stock-value>
+            <stock-value stylish$="[[stylish]]" suffix-symbol$="[[suffixSymbol]]" current$="[[current]]" previous$="[[previous]]" only$="[[displayMode]]"></stock-value>
           </div>
 
         </template>
       </dom-bind>
       <script>
-        domBind.current = "52.12";
-        domBind.previous = "42";
-        domBind.toNumber = function(value) {
-          return parseFloat(value);
-        };
+        domBind.current = 52.12;
+        domBind.previous = 42;
       </script>
     </template>
   </demo-snippet>
 
-  <h3>World markets</h3>
+  <h3>Historical stock data</h3>
   <demo-snippet>
     <template>
       <dom-bind id="domBind2">
         <template>
-          <p>
-            <paper-dropdown-menu label="Display" selected-item-label="{{displayMode}}">
-              <paper-listbox class="dropdown-content" selected="0">
-                <paper-item>both</paper-item>
-                <paper-item>difference</paper-item>
-                <paper-item>percent</paper-item>
-              </paper-listbox>
-            </paper-dropdown-menu>
-            <paper-checkbox checked="{{stylish}}">make it stylish</paper-checkbox>
-            <paper-checkbox checked="{{suffixSymbol}}">suffix symbol</paper-checkbox>
-          </p>
-
-          <div class="table">
-            <div class="tr">
-              <div class="th">Symbol</div>
-              <div class="th">Current</div>
-              <div class="th">Previous</div>
-              <div class="th">Fluctuation</div>
-            </div>
-            <dom-repeat items="[[items]]">
-              <template>
-                <div class="tr">
-                  <div class="td">[[item.name]]</div>
-                  <div class="td">[[item.currentFmt]]</div>
-                  <div class="td">[[item.previousFmt]]</div>
-                  <div class="td">
-                    <stock-value stylish$="[[stylish]]" suffix-symbol$="[[suffixSymbol]]" current="[[item.current]]" previous="[[item.previous]]"
-                      only="[[displayMode]]"></stock-value>
-                  </div>
-                </div>
-              </template>
-            </dom-repeat>
+          <paper-dropdown-menu label="Display" selected-item-label="{{displayMode}}">
+            <paper-listbox class="dropdown-content" selected="0">
+              <paper-item>both</paper-item>
+              <paper-item>difference</paper-item>
+              <paper-item>percent</paper-item>
+            </paper-listbox>
+          </paper-dropdown-menu>
+          <paper-checkbox checked="{{stylish}}">make it stylish</paper-checkbox>
+          <paper-checkbox checked="{{suffixSymbol}}">suffix symbol</paper-checkbox>
+          <div class="tr thead">
+            <div>Date</div>
+            <div>Open</div>
+            <div>Close</div>
+            <div>Fluctuation</div>
           </div>
+          <iron-ajax url="data.json" last-response="{{items}}" auto></iron-ajax>
+          <iron-list items="[[items]]">
+            <template>
+              <div class="tr">
+                <div>[[item.date]]</div>
+                <div>[[format(item.open, item.format)]]</div>
+                <div>[[format(item.close, item.format)]]</div>
+                <div>
+                  <stock-value stylish$="[[stylish]]" suffix-symbol$="[[suffixSymbol]]" current$="[[item.close]]" previous$="[[item.open]]"
+                    only$="[[displayMode]]"></stock-value>
+                </div>
+              </div>
+            </template>
+          </iron-list>
         </template>
       </dom-bind>
       <script>
         domBind2.suffixSymbol = false;
-        domBind2.items = [{
-          name: '10-year yield',
-          current: 2.53,
-          currentFmt: '2.53%',
-          previous: 2.47,
-          previousFmt: '2.47%'
-        }, {
-          name: 'Oil',
-          current: 48.68,
-          currentFmt: '$48.68',
-          previous: 48.51,
-          previousFmt: '$48.51'
-        }, {
-          name: 'Yen',
-          current: 113.92,
-          currentFmt: '¥113.92',
-          previous: 114.01,
-          previousFmt: '¥114.01'
-        }, {
-          name: 'Euro',
-          current: 1.07,
-          currentFmt: '$1.07',
-          previous: 1.03,
-          previousFmt: '$1.03'
-        }, {
-          name: 'Gold',
-          current: 1213.901216236,
-          currentFmt: '$1,213.90',
-          previous: 1211.78123155,
-          previousFmt: '$1,211.78'
-        }];
+        domBind2.format = function(value, fmt) {
+          return (fmt || 'd').replace('d', value.toLocaleString(undefined, {
+            maximumFractionDigits: 2
+          }));
+        };
       </script>
     </template>
   </demo-snippet>

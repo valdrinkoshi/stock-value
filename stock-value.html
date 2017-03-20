@@ -1,118 +1,263 @@
-<link rel="import" href="../polymer/polymer-element.html">
-<dom-module id="stock-value">
-  <template>
-    <style>
-      #wrapper {
-        display: inline-block;
-      }
-      
-      .up {
-        color: var(--stock-value-up-color, green);
-      }
-      
-       :host(:not([suffix-symbol])) .up:before,
-       :host([suffix-symbol]) .up:after {
-        content: var(--stock-value-up-symbol, '⬆');
-      }
-      
-      .down {
-        color: var(--stock-value-down-color, red);
-      }
-      
-       :host(:not([suffix-symbol])) .down:before,
-       :host([suffix-symbol]) .down:after {
-        content: var(--stock-value-down-symbol, '⬇');
-      }
-      
-      .neutral {
-        color: var(--stock-value-neutral-color, #666);
-      }
-      
-       :host(:not([suffix-symbol])) .neutral:before,
-       :host([suffix-symbol]) .neutral:after {
-        content: var(--stock-value-neutral-symbol);
-      }
-    </style>
-    <div id="wrapper" class$="[[_computeClass(difference)]]">
-      <span>[[_computeFmtDifference(difference, only)]]</span>
-      <span>[[_computeFmtPercent(percent, only)]]</span>
-    </div>
-  </template>
+<template id="stock-value">
+  <style>
+     :host(:not([suffix-symbol])):before,
+     :host([suffix-symbol]):after {
+      margin: var(--stock-value-symbol-margin);
+    }
+    
+     :host(.up) {
+      color: var(--stock-value-up-color, green);
+    }
+    
+     :host(.up:not([suffix-symbol])):before,
+     :host(.up[suffix-symbol]):after {
+      content: var(--stock-value-up-symbol, '⬆');
+    }
+    
+     :host(.down) {
+      color: var(--stock-value-down-color, red);
+    }
+    
+     :host(.down:not([suffix-symbol])):before,
+     :host(.down[suffix-symbol]):after {
+      content: var(--stock-value-down-symbol, '⬇');
+    }
+    
+     :host(.neutral) {
+      color: var(--stock-value-neutral-color, #666);
+    }
+    
+     :host(.neutral:not([suffix-symbol])):before,
+     :host(.neutral[suffix-symbol]):after {
+      content: var(--stock-value-neutral-symbol);
+    }
+  </style>
+  <slot></slot>
+</template>
 
-  <script>
-    class StockValue extends Polymer.Element {
+<script>
+  (doc => {
+    const is = 'stock-value';
+    const templ = doc.querySelector('template#' + is);
+    window.ShadyCSS && ShadyCSS.prepareTemplate(templ, is);
+
+    class StockValue extends HTMLElement {
+
       static get is() {
-        return 'stock-value'
+        return is;
       }
-      static get properties() {
-        return {
-          /** 
-           * The current value.
-           */
-          current: {
-            type: Number
-          },
-          /** 
-           * The previous value.
-           */
-          previous: {
-            type: Number
-          },
-          /** 
-           * The difference.
-           */
-          difference: {
-            type: Number,
-            computed: '_computeDifference(current, previous)'
-          },
-          /** 
-           * The difference percent.
-           */
-          percent: {
-            type: Number,
-            computed: '_computePercent(difference, previous)'
-          },
-          /** 
-           * Set to 'difference' or 'percent' to change what is displayed.
-           * Unset to display both (default). 
-           */
-          only: {
-            type: String
-          }
+
+      static get observedAttributes() {
+        return ['current', 'previous', 'only'];
+      }
+
+      constructor() {
+        super();
+
+        /**
+         * @type {number|null}
+         * @private
+         */
+        this._attributesChangingDebouncer = null;
+
+        /**
+         * @type {!Object}
+         * @private
+         */
+        this._props = {
+          current: null,
+          previous: null,
+          only: null,
+          difference: null,
+          percent: null,
+          formattedValue: null
+        };
+      }
+
+      attributeChangedCallback(name, old, value) {
+        // Skip updating properties when e.g. `old = "1"` and `value = 1`
+        if (old != value) {
+          // Wait all attributes to be done changing.
+          this._attributesChangingDebouncer && clearTimeout(this._attributesChangingDebouncer);
+          this._attributesChangingDebouncer = setTimeout(() => {
+            this._attributesChangingDebouncer = null;
+            this._updateDifferencePercent();
+            this._updateFormattedValue();
+          });
+          // Convert to number only if attribute is current or previous.
+          value = name === 'only' ? value : Number(value);
+          this[name] = value;
         }
       }
-      _computeDifference(current, previous) {
-        if (!Number.isFinite(current) || !Number.isFinite(previous)) return 0;
-        return current - previous;
+
+      connectedCallback() {
+        window.ShadyCSS && ShadyCSS.styleElement(this);
+        if (!this.shadowRoot) {
+          this.attachShadow({
+            mode: 'open'
+          });
+          this.shadowRoot.appendChild(
+            document.importNode(templ.content, true));
+        }
       }
 
-      _computeFmtDifference(value, only) {
-        if (only === 'percent') return;
-        return this._computeFmtValue(value);
+      /** 
+       * The current value.
+       * @type {number|null}
+       */
+      get current() {
+        return this._props.current;
       }
 
-      _computePercent(difference, previous) {
-        if (!previous || !Number.isFinite(difference)) return 0;
-        return 100 * (difference / previous);
+      /** 
+       * @param {number|null} c
+       * @returns {number|null}
+       */
+      set current(c) {
+        // Accept null or Number.
+        if (c !== null && !Number.isFinite(c)) c = null;
+        if (c === this._props.current) return;
+        this._props.current = c;
+        this._updateDifferencePercent();
+        return c;
       }
 
-      _computeFmtPercent(value, only) {
-        if (only === 'difference') return;
-        const fmtValue = this._computeFmtValue(value) + '%';
-        return only === 'percent' ? fmtValue : '(' + fmtValue + ')';
+      /** 
+       * The previous value.
+       * @type {number|null}
+       */
+      get previous() {
+        return this._props.previous;
       }
 
-      _computeFmtValue(value) {
-        return (value > 0 ? '+' : '') + value.toLocaleString(undefined, {
+      /** 
+       * @param {number|null} c
+       * @returns {number|null}
+       */
+      set previous(c) {
+        // Accept null or Number.
+        if (c !== null && !Number.isFinite(c)) c = null;
+        if (c === this._props.previous) return;
+        this._props.previous = c;
+        this._updateDifferencePercent();
+        return c;
+      }
+
+      /** 
+       * Set to 'difference' or 'percent' to change what is displayed.
+       * Unset to display both (default). 
+       * @type {string|null}
+       */
+      get only() {
+        return this._props.only;
+      }
+
+      /** 
+       * @param {string|null} c
+       * @returns {string|null}
+       */
+      set only(c) {
+        // Accept only 'percent' or 'difference'.
+        if (c !== 'percent' && c !== 'difference') c = null;
+        if (c === this._props.only) return c;
+        this._props.only = c;
+        this._updateFormattedValue();
+        return c;
+      }
+
+      /** 
+       * The difference.
+       * @type {number|null}
+       */
+      get difference() {
+        return this._props.difference;
+      }
+
+      /** 
+       * The difference percent.
+       * @type {number|null}
+       */
+      get percent() {
+        return this._props.percent;
+      }
+
+
+      /** 
+       * The formatted value.
+       * @type {string|null}
+       */
+      get formattedValue() {
+        return this._props.formattedValue;
+      }
+
+      /** 
+       * @private
+       */
+      _updateDifferencePercent() {
+        if (this._attributesChangingDebouncer) return;
+
+        const cur = this.current,
+          prev = this.previous,
+          diff = (cur === null || prev === null) ? 0 : cur - prev;
+
+        if (this._props.difference === diff) return;
+
+        this._props.difference = diff;
+        this._props.percent = (!diff || !prev) ? 0 : 100 * (diff / prev);
+
+        this.classList.toggle('neutral', diff === 0);
+        this.classList.toggle('up', diff > 0);
+        this.classList.toggle('down', diff < 0);
+
+        this.dispatchEvent(new CustomEvent('difference-changed', {
+          bubbles: false,
+          cancelable: false,
+          detail: {
+            value: diff
+          }
+        }));
+        this._updateFormattedValue();
+      }
+
+      /** 
+       * @private
+       */
+      _updateFormattedValue() {
+        if (this._attributesChangingDebouncer) return;
+        let fmtVal;
+        switch (this.only) {
+          case 'difference':
+            fmtVal = this._formatNumber(this.difference);
+            break;
+          case 'percent':
+            fmtVal = this._formatNumber(this.percent) + '%';
+            break;
+          default:
+            fmtVal = this._formatNumber(this.difference) + ' (' + this._formatNumber(this.percent) + '%)';
+            break;
+        }
+        if (this._props.formattedValue === fmtVal) return;
+        this._props.formattedValue = this.textContent = fmtVal;
+        this.dispatchEvent(new CustomEvent('formatted-value-changed', {
+          bubbles: false,
+          cancelable: false,
+          detail: {
+            value: fmtVal
+          }
+        }));
+      }
+
+      /** 
+       * @param {!number} num
+       * @private
+       */
+      _formatNumber(num) {
+        return (num > 0 ? '+' : '') + num.toLocaleString(undefined, {
           minimumFractionDigits: 2,
-          maximumFractionDigits: Math.abs(value * 100) < 1 ? 4 : 2
+          maximumFractionDigits: Math.abs(num * 100) < 1 ? 4 : 2
         });
-      }
-
-      _computeClass(difference) {
-        return !difference ? 'neutral' : difference > 0 ? 'up' : 'down';
       }
     }
     customElements.define(StockValue.is, StockValue);
-  </script>
-</dom-module>
+  })(document.currentScript.ownerDocument);
+</script>
