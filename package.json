@@ -1,6 +1,6 @@
 {
   "name": "stock-price",
-  "version": "0.0.2",
+  "version": "0.1.1",
   "description": "Web Component to display stock value",
   "main": "stock-value.html",
   "directories": {
