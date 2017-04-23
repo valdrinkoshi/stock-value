@@ -21,7 +21,7 @@ Example:
     <link rel="import" href="stock-value.html">
     <style>
       body {
-        text-align: center;
+        text-align: right;
         font-family: 'Roboto', 'Noto', sans-serif;
         font-weight: normal;
         font-size: 14px;
