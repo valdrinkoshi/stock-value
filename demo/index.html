@@ -96,8 +96,8 @@
         <template>
           <paper-input label="Current" value="{{current}}" pattern="[0-9.]*" auto-validate></paper-input>
           <paper-input label="Previous" value="{{previous}}" pattern="[0-9.]*" auto-validate></paper-input>
-          <paper-dropdown-menu label="Display" selected-item-label="{{displayMode}}">
-            <paper-listbox class="dropdown-content" selected="0">
+          <paper-dropdown-menu label="Display" selected-item-label="{{displayMode}}" no-animations>
+            <paper-listbox slot="dropdown-content" selected="0">
               <paper-item>both</paper-item>
               <paper-item>difference</paper-item>
               <paper-item>percent</paper-item>
