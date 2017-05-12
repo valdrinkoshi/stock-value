@@ -76,7 +76,7 @@ Screenshot:
 
 ![stock-value](images/screenshot.png)
 
-[APIs](https://www.webcomponents.org/element/valdrinkoshi/stock-value/stock-value)
+[APIs](https://www.webcomponents.org/element/valdrinkoshi/stock-value)
 
 ## Contributing
 
