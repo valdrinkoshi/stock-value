@@ -24,6 +24,6 @@
   },
   "homepage": "https://github.com/valdrinkoshi/stock-value#readme",
   "devDependencies": {
-    "polymer-cli": "^0.18"
+    "polymer-cli": "^1.0.0"
   }
 }

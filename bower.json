@@ -13,18 +13,17 @@
     "**/.*",
     "node_modules",
     "bower_components",
-    "test",
-    "tests"
+    "test"
   ],
   "devDependencies": {
-    "iron-demo-helpers": "PolymerElements/iron-demo-helpers#2.0-preview",
-    "paper-input": "PolymerElements/paper-input#2.0-preview",
-    "paper-dropdown-menu": "PolymerElements/paper-dropdown-menu#2.0-preview",
-    "paper-listbox": "PolymerElements/paper-listbox#2.0-preview",
-    "paper-item": "PolymerElements/paper-item#2.0-preview",
-    "paper-checkbox": "PolymerElements/paper-checkbox#2.0-preview",
-    "iron-ajax": "PolymerElements/iron-ajax#2.0-preview",
-    "iron-list": "PolymerElements/iron-list#2.0-preview",
+    "iron-demo-helpers": "PolymerElements/iron-demo-helpers#^2",
+    "paper-input": "PolymerElements/paper-input#^2",
+    "paper-dropdown-menu": "PolymerElements/paper-dropdown-menu#^2",
+    "paper-listbox": "PolymerElements/paper-listbox#^2",
+    "paper-item": "PolymerElements/paper-item#^2",
+    "paper-checkbox": "PolymerElements/paper-checkbox#^2",
+    "iron-ajax": "PolymerElements/iron-ajax#^2",
+    "iron-list": "PolymerElements/iron-list#^2",
     "web-component-tester": "Polymer/web-component-tester#^6",
     "webcomponentsjs": "webcomponents/webcomponentsjs#^1"
   }
